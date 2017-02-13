@@ -1,9 +1,16 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use View;
+
+error_reporting(-1); // reports all errors
+ini_set("display_errors", "1"); // shows all errors
+ini_set("log_errors", 1);
+ini_set("error_log", "/tmp/php-error.log");
 
 class StudentController extends Controller
 {
@@ -13,7 +20,7 @@ class StudentController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function index() { 
+    public function indexWithData() { 
         $students = DB::table('student')->get()->map(function ($value, $key) {
             $arr = array('mc','tc','hw','bs','ks','ac');
             foreach ($arr as $column) {
@@ -28,7 +35,11 @@ class StudentController extends Controller
             return $a->sum;
         });
 
-        return view('index', ['student' => $students]); 
+        return response()->json(array('htmlString'=> View::make('index', ['student' => $students])->render(), 200));
+    } 
+
+    public function index() { 
+        return view('index_empty'); 
     } 
 
     public function detail($id) {

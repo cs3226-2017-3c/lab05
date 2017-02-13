@@ -24,3 +24,6 @@ Route::post('student/delete', 'DeleteController@store');
 Route::get('student/{id}/edit', 'EditController@edit');
 Route::post('student/{id}/edit', 'EditController@store');
 Route::post('/computeSum','EditController@computeSum');
+
+Route::post('/getIndexHtml', 'StudentController@indexWithData');
+
