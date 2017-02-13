@@ -18,7 +18,7 @@ mysql > CREATE USER '<username>'@'localhost' IDENTIFIED BY '<custom_password>';
 
 mysql > GRANT ALL PRIVILEGES ON * . * TO '<username>'@'localhost';
 ```
-Create database ``<databasename>``.
+Create database.
 ```
 mysql > create database <databasename>;
 ```
