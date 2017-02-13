@@ -32,6 +32,9 @@ class StudentController extends Controller
     } 
 
     public function detail($id) {
+        if (!is_numeric($id)){
+            return view('errors/404');
+        }
         $students = DB::table('student')->get()->map(function ($value, $key) {
             $arr = array('mc','tc','hw','bs','ks','ac');
             foreach ($arr as $column) {
@@ -51,7 +54,7 @@ class StudentController extends Controller
             return $value->id == $id;
         })->first();
         if (! $student){
-            return view('404');
+            return view('errors/404');
         } else {
             return view('detail',['student' => $student, 'leader' => $leader]);
         }

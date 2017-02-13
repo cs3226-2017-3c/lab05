@@ -11,8 +11,8 @@ class UploadController extends Controller
 
     public function upload($id) {
         $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty()){
-            return view('404');
+        if ($student->isEmpty() || !is_numeric($id)){
+            return view('errors/404');
         } else {
             return view('upload',['student' => $student->first()]);
         }
@@ -30,8 +30,8 @@ class UploadController extends Controller
         $path = $request->file('avatar')->store("public/avatar");
         $id = $request->input('id');
         $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty()){
-            return view('404');
+        if ($student->isEmpty() || !is_numeric($id)){
+            return view('errors/404');
         } else {
             DB::table('student')
                 ->where('id', $id)

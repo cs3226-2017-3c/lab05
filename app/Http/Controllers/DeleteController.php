@@ -10,8 +10,8 @@ class DeleteController extends Controller
 {
     public function delete($id) {
         $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty()){
-            return view('404');
+        if ($student->isEmpty() || !is_numeric($id)){
+            return view('errors/404');
         } else {
             return view('delete',['student' => $student->first()]);
         }        
@@ -27,8 +27,8 @@ class DeleteController extends Controller
 	
         $id = $request->input('id');
         $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty()){
-            return view('404');
+        if ($student->isEmpty() || !is_numeric($id)){
+            return view('errors/404');
         } else {
             DB::table('student')
                 ->where('id', $id)

@@ -10,8 +10,8 @@ class EditController extends Controller
 {
     public function edit($id) {
         $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty()){
-            return view('404');
+        if ($student->isEmpty() || !is_numeric($id)){
+            return view('errors/404');
         } else {
             return view('edit',['student' => $student->first()]);
         }        
