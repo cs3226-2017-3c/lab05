@@ -16,9 +16,8 @@ function addRank()
         if ( current_sum == largest ) {
             table.rows[i].cells[0].innerHTML = rank;
         } else if (current_sum < largest) {
-            rank++;
             largest = current_sum;
-            table.rows[i].cells[0].innerHTML = rank;
+            rank = table.rows[i].cells[0].innerHTML;
         } else {
             console.log('Should not reach here');
         }
