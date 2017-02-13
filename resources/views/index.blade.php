@@ -136,7 +136,7 @@ Home
 					@else
 					<tr>				
 					@endif
-						<td>{{$loop->iteration}}</td>
+						<td></td>
 						<td class="hidden-xs"><span class="flag-icon flag-icon-{{strtolower($s->country)}}"></span>{{$s->country}}</td>
 						<td><img class="hidden-xs" alt="" src="img/prof.png" height="15"><a href="student/{{$s->id}}">{{$s->name}}</a></td>
 					@if($s->mc == $highest["mc"])
@@ -203,4 +203,5 @@ Home
 @section('footer')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="js/highlight.js"></script>
+<script type="text/javascript" src="js/rank.js"></script>
 @endsection
