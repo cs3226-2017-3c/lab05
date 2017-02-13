@@ -2,6 +2,9 @@
 @section('title')
 {{ $student->name }} - Edit
 @endsection
+@section('header')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.css">
+@endsection
 @section('main')
 <?php
 $countries = array

@@ -9,8 +9,8 @@
 
   <!-- Bootstrap -->    
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.css">
-
+  @yield('header')
+  
 
   <!-- Custom styles for this template -->
   <link href="/css/navbar.css" rel="stylesheet">

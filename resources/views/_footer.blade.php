@@ -1,5 +1,5 @@
 	<footer class="site-footer">
-		<p class="text-center">© 2017 C.G. Lim, Z. Lin & S.F. Zarrinkoub.<br>
+		<p class="text-center">© 2017 M. Ashmawi, C. G. Lim, Z. Lin, K. Xiao, S. F. Zarrinkoub & H. Zhao.<br>
             <a href="https://github.com/cs3226jan2017-l3-4"><img width="16" alt="GitHub" src="/img/GitHub-Mark-32px.png"></a></p>
         </footer>
 
