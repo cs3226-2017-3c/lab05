@@ -1,0 +1,83 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.first {
+    background-color: gold;
+}
+
+.second {
+    background-color: silver;
+}
+
+.third {
+    background-color: #cd7f32;
+}
+
+.last {
+    background-color: pink;
+}
+
+span.cyan {
+    color: cyan;
+}
+
+.orange { 
+    background-color: rgba(255, 165, 0, 0.4);
+}
+
+#flag {
+    margin-right: 60px;
+    border: 1px solid;
+}
+
+#photo {
+    border: 1px solid;
+}
+
+h1, h2, h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
+
+td {
+    vertical-align: bottom !important;
+}
+
+td img, td span {
+    margin-right: 3px
+}
+
+.rank {
+    width:10px;
+}
+
+.flag {
+    width:70px;
+}
+
+.first {
+  background-color : gold;
+}
+
+.second {
+  background-color:  : silver;
+}
+
+.third {
+  background-color: :brown;
+}
+
+.last {
+  background-color: pink;
+}
+
+.tobeorange {
+  background-color: orange;
+}
