@@ -56,4 +56,25 @@ class EditController extends Controller
 		
 		return redirect()->action('StudentController@detail',['id' => $id]);
     }      
+
+    private function computeSumOf ($data) {
+        $arr = explode(",", $data);
+
+        return array_sum($arr);
+    } 
+
+    public function computeSum(Request $request ) {
+        $MC = $request->input('mc');
+        $TC = $request->input('tc');
+        $HW = $request->input('hw');
+        $Bs = $request->input('bs');
+        $Ks = $request->input('ks');
+        $Ac = $request->input('ac');
+
+        $sum = $this->computeSumOf($MC) + $this->computeSumOf($TC) + 
+        $this->computeSumOf($HW) + $this->computeSumOf($Bs) + 
+        $this->computeSumOf($Ks) + $this->computeSumOf($Ac);
+
+        return response()->json(array('sum'=> (string)$sum, 200));
+    }
 }
