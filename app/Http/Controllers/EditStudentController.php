@@ -26,20 +26,19 @@ class EditStudentController extends Controller
             'g-recaptcha-response.required' => 'The ReCaptcha is invalid.'
         ])->validate();
 
-        $student = Student::find($request->input('id'));
-
-
-        $path = $request->file('avatar')->store("public/avatar");
         $id = $request->input('id');
         $student = Student::find($id);
+        if($request->hasFile('avatar')){
+            $path = $request->file('avatar')->store("public/avatar");
+            $student->avatar = $path;
+        }
 
         $student->nickname = $request->input('nickname');
         $student->name = $request->input('fullname');
         $student->kattis = $request->input('kattisacct');
         $student->comment = $request->input('comment');
         $student->country = $request->input('nationality');
-        $student->avatar = $path;
-        
+    
         $student->save();
 
         return redirect()->action('DetailController@detail',['id' => $id]);
