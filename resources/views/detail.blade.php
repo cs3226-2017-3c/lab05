@@ -3,7 +3,7 @@
 {{ $student->name }} - Student Detail
 @endsection
 @section('main')
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-md-8 col-xs-12" >
       <h3><strong>{{ $student->name }}</strong> in CS3233 S1 AY 2020/21</h3>

@@ -2,6 +2,9 @@
 @section('title')
 Create Student
 @endsection
+@section('header')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.css">
+@endsection
 @section('main')
 <?php
 $countries = array
@@ -253,7 +256,7 @@ $countries = array
 	'ZW' => 'Zimbabwe',
 );
 ?>
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			@if (count($errors) > 0) {{-- just list down all errors found --}}
@@ -280,7 +283,7 @@ $countries = array
 			</div>
 			<div class="form-group">
 			{!! Form::label('nationality', 'Nationality:', ['class' => 'control-label']) !!}
-			{!! Form::select('nationality', $countries,  ['placeholder' => '', 'class' => 'form-control']) !!}
+			{!! Form::select('nationality', $countries,  ['class' => 'form-control']) !!}
        		</div>
        		<div class="form-group">
           		{!! app('captcha')->display(); !!}

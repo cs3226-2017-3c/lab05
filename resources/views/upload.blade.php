@@ -3,7 +3,7 @@
 {{ $student->name }} - Upload Image
 @endsection
 @section('main')
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-md-12" >
       @if (count($errors) > 0)

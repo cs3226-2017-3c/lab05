@@ -19,7 +19,6 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans%7cRaleway" rel="stylesheet">
 </head>
 <body>
-  <div class="container">  
    @include('_navigation')
    
    @yield('main')
@@ -27,6 +26,5 @@
    @include('_footer')
 
    @yield('footer')
- </div>
 </body>
 </html>

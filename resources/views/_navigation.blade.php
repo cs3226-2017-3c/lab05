@@ -1,6 +1,6 @@
   <!-- Static navbar -->
-  <nav class="navbar navbar-default">
-  	<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top">
+  	<div class="container">
   		<div class="navbar-header">
   			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
   				<span class="sr-only">Toggle navigation</span>
@@ -15,7 +15,7 @@
   				<li id="home" @if(Request::path()=="/")class="active"@endif}}><a href="/">Home</a></li>
   				<li id="help" @if(Request::is('help'))class="active"@endif}}><a href="/help">Help</a></li>
           @if(Request::is('student/create'))
-          <li id="create-mode" class="active"><a>Create Mode</a></li>
+          <li class="active"><a href="/student/create">Create Mode</a></li>
           @elseif(Request::is('student/*/*'))
           <li class="dropdown active">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@if(Request::is('student/*/edit')) Edit Mode @elseif(Request::is('student/*/upload')) Upload Mode @elseif(Request::is('student/*/delete')) Delete Mode  @else @endif <span class="caret"></span></a>
@@ -40,6 +40,7 @@
             </ul>
           </li>
           @else
+          <li><a href="/student/create">Create Mode</a></li>
           @endif
   			</ul>
   		</div><!--/.nav-collapse -->

@@ -256,7 +256,7 @@ $countries = array
     'ZW' => 'Zimbabwe',
 );
 ?>
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-md-12" >
     @if (count($errors) > 0)

@@ -4,7 +4,7 @@ Help
 @endsection
 @section('main')
 <!-- Main component for a primary marketing message or call to action -->
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-xs-12" >
       <header>
