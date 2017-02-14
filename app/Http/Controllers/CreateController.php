@@ -24,9 +24,10 @@ class CreateController extends Controller {
 	$new_student->name = $request->input('fullname');
 	$new_student->kattis = $request->input('kattisacct');
 	$new_student->country = $request->input('nationality');
-  $new_student->save();
+    $new_student->save();
+    $id = $new_student->id;
 		
-	return redirect()->action('StudentController@index');
+	return redirect()->action('DetailController@detail',['id' => $id]);
 	
   }
 }

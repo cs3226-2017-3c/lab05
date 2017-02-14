@@ -59,7 +59,7 @@ class EditController extends Controller
 		
         $student->save();
 		
-		return redirect()->action('StudentController@detail',['id' => $request->input('id')]);
+		return redirect()->action('DetailController@detail',['id' => $request->input('id')]);
     }      
 
     private function computeSumOf ($data) {
