@@ -32,6 +32,7 @@ class CreateController extends Controller {
     $new_score->save();
 
     $new_student->latest_score_id = $new_score->id;
+    $new_student->save();
 		
 	return redirect()->action('DetailController@detail',['id' => $id]);
 	
