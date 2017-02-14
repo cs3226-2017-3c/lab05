@@ -78,6 +78,13 @@ Seed fake data into database.
 ```
 $ php artisan db:seed --class=StudentsTableSeeder --env=local
 ```
+Add two symbolic links
+```
+php artisan storage:link
+ln -s <project directory>/vendor/components/flag-icon-css/flags <project directory>/public/flags
+```
+
+
 ### Start Website locally
 ```
 $ php artisan serve
