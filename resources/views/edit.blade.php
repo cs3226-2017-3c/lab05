@@ -320,7 +320,7 @@ $countries = array
 		</div>
 		<div class="form-group">
           {!! app('captcha')->display(); !!}
-          {!! Form::hidden('id', $id) !!}
+          {!! Form::hidden('id', $student->id) !!}
         </div>
 		<div class="form-group"> {{-- Don't forget to create a submit button --}}
 			{!! Form::submit('Update', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
