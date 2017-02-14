@@ -31,7 +31,7 @@ class StudentsTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('scores')->insert([ //,
-                'user_id' => $faker->numberBetween(1,50),
+                'student_id' => $faker->numberBetween(1,50),
                 'mc' => $this->generate_mc(),
                 'tc' => $this->generate_tc(),
                 'hw' => $this->generate_hw(),

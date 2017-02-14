@@ -28,7 +28,7 @@ class CreateController extends Controller {
     $id = $new_student->id;
 
     $new_score = new Score;
-    $new_score->user_id = $id;
+    $new_score->student_id = $id;
     $new_score->save();
 
     $new_student->latest_score_id = $new_score->id;

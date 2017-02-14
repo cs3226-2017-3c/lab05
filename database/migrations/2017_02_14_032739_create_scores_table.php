@@ -15,7 +15,7 @@ class CreateScoresTable extends Migration
     {
         Schema::create('scores', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
+            $table->string('student_id');
             $table->string('mc')->default('x,x,x,x,x,x,x,x,x');
             $table->string('tc')->default('x,x');
             $table->string('hw')->default('x,x,x,x,x,x,x,x,x,x');
