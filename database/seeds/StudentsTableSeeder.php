@@ -31,13 +31,14 @@ class StudentsTableSeeder extends Seeder
 
         for ($i = 0; $i < $limit; $i++) {
             DB::table('scores')->insert([ //,
-                'student_id' => $faker->numberBetween(1,50),
+                'student_id' => $i+1,
                 'mc' => $this->generate_mc(),
                 'tc' => $this->generate_tc(),
                 'hw' => $this->generate_hw(),
                 'bs' => $this->generate_bs(),
                 'ks' => $this->generate_ks(),
                 'ac' => $this->generate_ac(),
+                'effective_from' => Carbon::now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);

@@ -21,7 +21,8 @@ class CreateScoresTable extends Migration
             $table->string('hw')->default('x,x,x,x,x,x,x,x,x,x');
             $table->string('bs')->default('x,x,x,x,x,x,x,x,x');
             $table->string('ks')->default('x,x,x,x,x,x,x,x,x,x,x,x');
-            $table->string('ac')->default('x,x,x,x,x,x,x,x');              
+            $table->string('ac')->default('x,x,x,x,x,x,x,x');
+            $table->dateTime('effective_from');            
             $table->timestamps();
         });
     }
