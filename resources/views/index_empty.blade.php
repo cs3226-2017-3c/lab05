@@ -19,7 +19,6 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans%7cRaleway" rel="stylesheet">
 </head>
 <body>
-  <div class="container">  
    @include('_navigation')
    
   <div class="loader" style="margin:0 auto;"></div>
@@ -31,7 +30,6 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/js/jquery.tablesorter.min.js"></script>
 
- </div>
 </body>
 
 </html>
