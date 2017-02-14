@@ -269,7 +269,7 @@ $countries = array
         </div>
       @endif
 		<h2>Edit Info for <strong>{{ $student->name }}</strong></h2>
-		{!! Form::open() !!} {{-- Blade shortcut for creating HTML5 form --}}
+		{!! Form::open(['action' => 'EditController@store']) !!} {{-- Blade shortcut for creating HTML5 form --}}
 		<div class="form-group"> {{-- Group related form components together --}}
 			{!! Form::label('nickname', 'Nick name:', ['class' => 'control-label']) !!}
 			{!! Form::text('nickname', $student->nickname , ['class' => 'form-control']) !!}
