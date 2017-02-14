@@ -1,7 +1,6 @@
 <footer class="footer">
   <div class="container">
-    <p class="text-center">© 2017 M. Ashmawi, C. G. Lim, Z. Lin, K. Xiao, S. F. Zarrinkoub & H. Zhao.<br>
-      <a href="https://github.com/cs3226-2017-3c"><img width="16" alt="GitHub" src="/img/GitHub-Mark-32px.png"></a></p>
+    <p class="text-right">© 2017 M. Ashmawi, C. G. Lim, Z. Lin, K. Xiao, S. F. Zarrinkoub & H. Zhao. <a href="https://github.com/cs3226-2017-3c" target="_blank"><img width="12" alt="GitHub" src="/img/GitHub-Mark-32px.png"></a></p>
       </div>
   </footer>
 
