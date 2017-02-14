@@ -22,7 +22,7 @@ class EditScoreController extends Controller
 
     public function store(Request $request) {
 		Validator::make($request->all(), [ // as simple as this
-            //'g-recaptcha-response' => 'required|captcha',
+            'g-recaptcha-response' => 'required|captcha',
             'mc' => array('required','regex:/^((([0-3][.][5])|[x]|([0-4]))($|,)){8}(([0-3][.][5])|[x]|([0-4]))$/'),
             'tc' => array('required','regex:/^(([0-9][.][5])|[x]|([0-9])|([1][0][.][5])|([1][0]))(,)(([0-9][.][5])|[x]|([0-9])|([1][0-3][.][05])|([1][0-3]))$/'),
             'hw' => array('required','regex:/^((([0-1][.][5])|[x]|([0-1]))($|,)){9}(([0-1][.][5])|[x]|([0-1]))$/'),
