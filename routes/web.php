@@ -24,3 +24,7 @@ Route::get('student/{id}/edit', 'EditController@edit');
 Route::post('student/edit', 'EditController@store');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
