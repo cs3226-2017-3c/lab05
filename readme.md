@@ -112,8 +112,8 @@ $ php artisan serve
   6. latest_score_id => nullable, but should not be null except creation
   7. avatar => path of uploaded avatar,  => nullable
   8. comment => nullable
-  9. created_at 
-  10. updated_at
+  9. created_at 
+  10. updated_at
 
 * Model ``Scores`` 
   1. student_id
