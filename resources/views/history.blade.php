@@ -11,7 +11,6 @@
         <thead>
           <tr>
             <th>No</th>
-            <th>Sum</th>
             <th class="hidden-xs">MC</th>
             <th class="hidden-xs">TC</th>
             <th>SPE</th>
@@ -20,6 +19,7 @@
             <th class="hidden-xs">KS</th>
             <th class="hidden-xs">Ac</th>
             <th>DIL</th>
+            <th>Sum</th>
             <th>Effective Date</th>
             <th></th>
           </tr>
@@ -28,7 +28,6 @@
         @foreach($score as $sc)
           <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$sc->sum}}</td>
             <td class="hidden-xs">{{$sc->mc}}</td>
             <td class="hidden-xs">{{$sc->tc}}</td>
             <td>{{$sc->spe}}</td>
@@ -37,6 +36,7 @@
             <td class="hidden-xs">{{$sc->ks}}</td>
             <td class="hidden-xs">{{$sc->ac}}</td>
             <td>{{$sc->dil}}</td>
+            <td>{{$sc->sum}}</td>
             <td>{{$sc->effective_from}}</td>
             <td><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit">Edit</button> <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete">Delete</button></td>
         @endforeach
