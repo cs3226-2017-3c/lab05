@@ -287,6 +287,10 @@ $countries = array
 			{!! Form::select('nationality', $countries,  ['class' => 'form-control']) !!}
        		</div>
        		<div class="form-group">
+	          {!! Form::label('comment', 'Specific comments:', ['class' => 'control-label']) !!}
+	          {!! Form::text('comment', null, ['class' => 'form-control']) !!}
+	        </div>
+       		<div class="form-group">
           		{!! app('captcha')->display(); !!}
 			</div>
 			<div class="form-group"> {{-- Don't forget to create a submit button --}}
