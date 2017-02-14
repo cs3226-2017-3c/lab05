@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Score;
-
+use Carbon\Carbon;
 use Validator;
 
 class CreateController extends Controller {  
@@ -29,6 +29,7 @@ class CreateController extends Controller {
 
     $new_score = new Score;
     $new_score->student_id = $id;
+    $new_score->effective_from = Carbon::now();
     $new_score->save();
 
     $new_student->latest_score_id = $new_score->id;

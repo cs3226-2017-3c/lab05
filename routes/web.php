@@ -16,13 +16,13 @@ Route::get('student/create', function() { return view('create'); });
 Route::post('student/create', 'CreateController@check');
 Route::get('student/{id}', 'DetailController@detail');
 Route::get('help', function() { return view('help'); });
-Route::get('student/{id}/upload', 'UploadController@upload');
-Route::post('student/upload', 'UploadController@store');
+Route::get('student/{id}/edit', 'EditStudentController@upload');
+Route::post('student/edit', 'EditStudentController@store');
 Route::get('student/{id}/delete', 'DeleteController@delete');
 Route::post('student/delete', 'DeleteController@store');
-Route::get('student/{id}/edit', 'EditController@edit');
-Route::post('student/edit', 'EditController@store');
-
+Route::get('student/{id}/score', 'EditScoreController@edit');
+Route::post('student/score', 'EditScoreController@store');
+Route::get('student/{id}/history', 'HistoryController@history');
 
 
 Auth::routes();
