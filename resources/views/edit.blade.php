@@ -1,6 +1,6 @@
 @extends('template')
 @section('title')
-{{ $student->name }} - Edit Info
+{{ $student->name }} - Edit Student
 @endsection
 @section('header')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.css">
@@ -268,7 +268,7 @@ $countries = array
             </ul>
         </div>
       @endif
-        <h2>Upload image for <strong>{{ $student->name }}</strong></h2>
+        <h2>Edit Student Info for <strong>{{ $student->name }}</strong></h2>
         {!! Form::open(['action' => 'EditStudentController@store', 'files' => 'true']) !!}
         <div class="form-group"> {{-- Group related form components together --}}
           {!! Form::label('nickname', 'Nick name:', ['class' => 'control-label']) !!}

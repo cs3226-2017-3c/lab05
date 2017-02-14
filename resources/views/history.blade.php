@@ -1,12 +1,12 @@
 @extends('template')
 @section('title')
-{{ $student->name }} - Edit History
+{{ $student->name }} - History
 @endsection
 @section('main')
 <div class="container">
   <div class="row">
     <div class="col-md-12" >
-      <h3>Score History for <strong>{{ $student->name }}</strong></h3>
+      <h2>Score History for <strong>{{ $student->name }}</strong></h2>
       <table class="table table-striped">
         <thead>
           <tr>
