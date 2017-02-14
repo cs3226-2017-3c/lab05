@@ -38,10 +38,10 @@ class StudentController extends Controller
             foreach ($col as $c) {
                 $student->{$c.'_i'} = explode(",", $score->{$c});
                 $student->{$c} = array_sum($student->{$c.'_i'});
-                $student->spe = $student->mc+$student->tc;
-                $student->dil = $student->hw+$student->bs+$student->ks+$student->ac;
-                $student->sum = $student->spe + $student->dil;
             }
+            $student->spe = $student->mc+$student->tc;
+            $student->dil = $student->hw+$student->bs+$student->ks+$student->ac;
+            $student->sum = $student->spe + $student->dil;
         }
         $students = $students->sortByDesc(function ($a, $key) {
             return $a->sum;

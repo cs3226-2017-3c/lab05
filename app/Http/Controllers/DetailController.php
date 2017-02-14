@@ -33,10 +33,10 @@ class DetailController extends Controller {
             foreach ($col as $c) {
                 $s->{$c.'_i'} = explode(",", $score->{$c});
                 $s->{$c} = array_sum($s->{$c.'_i'});
-                $s->spe = $s->mc+$s->tc;
-                $s->dil = $s->hw+$s->bs+$s->ks+$s->ac;
-                $s->sum = $s->spe + $s->dil;
             }
+            $s->spe = $s->mc+$s->tc;
+            $s->dil = $s->hw+$s->bs+$s->ks+$s->ac;
+            $s->sum = $s->spe + $s->dil;
         }
         $students = $students->sortByDesc(function ($a, $key) {
             return $a->sum;
