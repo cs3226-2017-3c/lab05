@@ -3,8 +3,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Student;
+use App\Score;
 
 use Validator;
 
@@ -26,6 +26,12 @@ class CreateController extends Controller {
 	$new_student->country = $request->input('nationality');
     $new_student->save();
     $id = $new_student->id;
+
+    $new_score = new Score;
+    $new_score->user_id = $id;
+    $new_score->save();
+
+    $new_student->latest_score_id = $new_score->id;
 		
 	return redirect()->action('DetailController@detail',['id' => $id]);
 	

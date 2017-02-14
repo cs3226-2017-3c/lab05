@@ -21,7 +21,7 @@ class Student extends Migration
             $table->string('country');
             $table->string('avatar')->nullable();
             $table->string('comment')->nullable();
-            $table->string('latest_score_id');
+            $table->string('latest_score_id')->nullable();
             $table->timestamps();
         });
     }
