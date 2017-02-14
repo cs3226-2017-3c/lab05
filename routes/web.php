@@ -19,7 +19,7 @@ Route::get('student/{id}/upload', 'UploadController@upload');
 Route::post('student/upload', 'UploadController@store');
 Route::get('student/{id}/delete', 'DeleteController@delete');
 Route::post('student/delete', 'DeleteController@store');
-Route::get('student/edit', 'EditController@edit');
+Route::get('student/{id}/edit', 'EditController@edit');
 Route::post('student/{id}/edit', 'EditController@store');
 
 
