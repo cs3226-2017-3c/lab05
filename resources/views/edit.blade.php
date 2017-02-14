@@ -1,6 +1,6 @@
 @extends('template')
 @section('title')
-{{ $student->name }} - Edit
+{{ $student->name }} - Edit Info
 @endsection
 @section('header')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.css">
@@ -259,7 +259,7 @@ $countries = array
 <div class="container">
   <div class="row">
     <div class="col-md-12" >
-    @if (count($errors) > 0)
+      @if (count($errors) > 0)
         <div class="alert alert-danger">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -268,72 +268,47 @@ $countries = array
             </ul>
         </div>
       @endif
-		<h2>Edit Info for <strong>{{ $student->name }}</strong></h2>
-		{!! Form::open(['action' => 'EditController@store']) !!} {{-- Blade shortcut for creating HTML5 form --}}
-		<div class="form-group"> {{-- Group related form components together --}}
-			{!! Form::label('nickname', 'Nick name:', ['class' => 'control-label']) !!}
-			{!! Form::text('nickname', $student->nickname , ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('fullname', 'Full name:', ['class' => 'control-label']) !!}
-			{!! Form::text('fullname', $student->name, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('kattisacct', 'Kattis account:', ['class' => 'control-label']) !!}
-			{!! Form::text('kattisacct', $student->kattis, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('mc', 'Mini contest scores:', ['class' => 'control-label']) !!}
-			{!! Form::text('mc', $student->mc, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('tc', 'Team contest scores:', ['class' => 'control-label']) !!}
-			{!! Form::text('tc', $student->tc, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('hw', 'Homework scores:', ['class' => 'control-label']) !!}
-			{!! Form::text('hw', $student->hw, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('bs', 'Problem B scores:', ['class' => 'control-label']) !!}
-			{!! Form::text('bs', $student->bs, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('ks', 'Kattis set scores:', ['class' => 'control-label']) !!}
-			{!! Form::text('ks', $student->ks, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('ac', 'Achievement scores:', ['class' => 'control-label']) !!}
-			{!! Form::text('ac', $student->ac, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('sum', 'Sum of scores:', ['class' => 'control-label']) !!}
-			{!! Form::text('sum', null, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
-			{!! Form::label('nationality', 'Nationality:', ['class' => 'control-label']) !!}
-			{!! Form::select('nationality', $countries,['placeholder' => $student->country, 'class' => 'form-control']) !!}
-       		</div>
-		<div class="form-group">
-			{!! Form::label('comment', 'Specific comments:', ['class' => 'control-label']) !!}
-			{!! Form::text('comment', $student->comment, ['class' => 'form-control']) !!}
-		</div>
-		<div class="form-group">
+        <h2>Upload image for <strong>{{ $student->name }}</strong></h2>
+        {!! Form::open(['action' => 'EditStudentController@store', 'files' => 'true']) !!}
+        <div class="form-group"> {{-- Group related form components together --}}
+          {!! Form::label('nickname', 'Nick name:', ['class' => 'control-label']) !!}
+          {!! Form::text('nickname', $student->nickname , ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('fullname', 'Full name:', ['class' => 'control-label']) !!}
+          {!! Form::text('fullname', $student->name, ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('kattisacct', 'Kattis account:', ['class' => 'control-label']) !!}
+          {!! Form::text('kattisacct', $student->kattis, ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('nationality', 'Nationality:', ['class' => 'control-label']) !!}
+          {!! Form::select('nationality', $countries,['placeholder' => $student->country, 'class' => 'form-control']) !!}
+              </div>
+        <div class="form-group">
+          {!! Form::label('comment', 'Specific comments:', ['class' => 'control-label']) !!}
+          {!! Form::text('comment', $student->comment, ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group">
+          {!! Form::label('avatar', 'Avatar:', ['class' => 'control-label']) !!}
+          {!! Form::file('avatar') !!}
+        </div>
+        <div class="form-group">
           {!! app('captcha')->display(); !!}
           {!! Form::hidden('id', $student->id) !!}
         </div>
-		<div class="form-group"> {{-- Don't forget to create a submit button --}}
-			{!! Form::submit('Update', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
-		</div>
-        
+        <div class="form-group"> 
+          {!! Form::submit('Upload', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
+        </div>
+        {!! Form::close() !!}
       </div>
     </div>
   </div>
   @endsection
-@section('footer')
+  @section('footer')
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js"></script>
 <script>
 $('#nationality').selectize();
 </script>
-<script type="text/javascript" src="/js/sum.js"></script>
 @endsection
