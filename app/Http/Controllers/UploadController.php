@@ -4,39 +4,29 @@ namespace App\Http\Controllers;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Student;
 
 class UploadController extends Controller
 {
 
     public function upload($id) {
-        $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty() || !is_numeric($id)){
-            return view('errors/404');
-        } else {
-            return view('upload',['student' => $student->first()]);
-        }
+        $student = Student::find($id);
+        return view('upload',['student' => $student]);
     } 
 
     public function store(Request $request) {
         Validator::make($request->all(), [
-            'avatar' => 'required|max:1024|mimetypes:image/jpeg,image/bmp,image/gif',
-            'id' => 'required|exists:student,id',
-            'g-recaptcha-response' => 'required|captcha',
+            'avatar' => 'required|max:1024|image',
+            //'g-recaptcha-response' => 'required|captcha',
         ],[
             'g-recaptcha-response.required' => 'The ReCaptcha is invalid.'
         ])->validate();
-
         $path = $request->file('avatar')->store("public/avatar");
         $id = $request->input('id');
-        $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty() || !is_numeric($id)){
-            return view('errors/404');
-        } else {
-            DB::table('student')
-                ->where('id', $id)
-                ->update(['avatar' => $path]); 
-            return redirect()->action('StudentController@detail',['id' => $id]);
-        }
-    }      
+        $student = Student::find($id);
+        $student->avatar = $path;
+        $student->save();
+
+        return redirect()->action('DetailController@detail',['id' => $id]);
+    }     
 }
