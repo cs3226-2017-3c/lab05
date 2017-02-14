@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/getIndexHtml', 'StudentController@indexWithData');
 Route::get('/', 'StudentController@index');
 Route::get('student/create', function() { return view('create'); });
 Route::post('student/create', 'CreateController@check');

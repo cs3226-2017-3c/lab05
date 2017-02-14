@@ -15,13 +15,22 @@ ini_set("error_log", "/tmp/php-error.log");
 
 class StudentController extends Controller
 {
+
+    /**
+    * Index page when loader is loading 
+    */
+    public function index() {
+        return view('index_empty'); 
+    }
+
+
     /**
      * Show the profile for the given user.
      *
      * @param  int  $id
      * @return Response
      */
-    public function index() { 
+    public function indexWithdata() { 
         $students = Student::all();
         $col = array('mc','tc','hw','bs','ks','ac');
         foreach($students as $student){
@@ -38,6 +47,6 @@ class StudentController extends Controller
             return $a->sum;
         });
 
-        return view('index', ['student' => $students]); 
+        return response()->json(array('htmlString'=> View::make('index', ['student' => $students])->render(), 200));
     }    
 }

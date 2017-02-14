@@ -1,7 +1,3 @@
-@extends('template') <!-- use template from previous slide -->
-@section('title')
-Home
-@endsection
 @section('main') <!-- define a section called main -->
 
 <?php
@@ -199,9 +195,4 @@ Home
 		</div>
 	</div>
 </div>
-@endsection
-@section('footer')
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/js/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="js/highlight.js"></script>
-<script type="text/javascript" src="js/rank.js"></script>
-@endsection
+
