@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class StudentsTableSeeder extends Seeder
 {
@@ -16,18 +17,29 @@ class StudentsTableSeeder extends Seeder
         $limit = 50;
 
         for ($i = 0; $i < $limit; $i++) {
-            DB::table('student')->insert([ //,
+            DB::table('students')->insert([ //,
                 'name'=>$faker->unique()->name,
                 'nickname'=>$faker->unique()->word,
                 'kattis'=>$faker->unique()->word,
                 'country' => $faker->countryCode,
+                'comment' => $faker->text($maxNbChars = 100),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'latest_score_id' => $i+1,
+            ]);
+        }
+
+        for ($i = 0; $i < $limit; $i++) {
+            DB::table('scores')->insert([ //,
+                'user_id' => $faker->numberBetween(1,50),
                 'mc' => $this->generate_mc(),
                 'tc' => $this->generate_tc(),
                 'hw' => $this->generate_hw(),
                 'bs' => $this->generate_bs(),
                 'ks' => $this->generate_ks(),
                 'ac' => $this->generate_ac(),
-                'comment' => $faker->text($maxNbChars = 100),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]);
         }
     }
