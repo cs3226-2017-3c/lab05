@@ -4,12 +4,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Student;
 
 use Validator;
 
-class FormController extends Controller {
-  public function test() { return view('test'); }
-  
+class CreateController extends Controller {  
   public function check(Request $request) {
     Validator::make($request->all(), [ // as simple as this
       'nickname' => 'required|min:5|max:30',
@@ -20,14 +19,12 @@ class FormController extends Controller {
     ],[
       'g-recaptcha-response.required' => 'The ReCaptcha is invalid.'
     ])->validate();
-	
-	$nickname = $request->input('nickname');
-	$fullname = $request->input('fullname');
-	$kattisacct = $request->input('kattisacct');
-	$nationality = $request->input('nationality');
-	DB::table('student')->insert(
-		['name' => $fullname, 'nickname' => $nickname, 'kattis' => $kattisacct,
-		'country' => $nationality,]);
+	$new_student = new Student;
+	$new_student->nickname = $request->input('nickname');
+	$new_student->name = $request->input('fullname');
+	$new_student->kattis = $request->input('kattisacct');
+	$new_student->country = $request->input('nationality');
+  $new_student->save();
 		
 	return redirect()->action('StudentController@index');
 	

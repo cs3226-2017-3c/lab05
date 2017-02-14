@@ -1,8 +1,12 @@
+@extends('template') <!-- use template from previous slide -->
 @section('title')
 Home
 @endsection
+@section('main') <!-- define a section called main -->
 
 <?php
+
+// Determining value of first, second, third and last
 
 	$sums = [];
 	$i = 0;
@@ -42,6 +46,7 @@ Home
 
 	$third = $sums[0];
 
+//Determining highest value for each category
 	$noofcategories = 8;
 	$categories = ["mc", "tc", "mctc", "hw", "bs", "ks", "ac", "hwbsksac"];
 	$highest = ["mc"=>0,"tc"=>0,"mctc"=>0,"hw"=>0,"bs"=>0,"ks"=>0,"ac"=>0,"hwbsksac"=>0];
@@ -194,4 +199,9 @@ Home
 		</div>
 	</div>
 </div>
-
+@endsection
+@section('footer')
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.5/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="js/highlight.js"></script>
+<script type="text/javascript" src="js/rank.js"></script>
+@endsection

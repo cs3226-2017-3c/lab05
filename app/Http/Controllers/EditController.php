@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Student;
+use App\Score;
 
 class EditController extends Controller
 {
     public function edit($id) {
-        $student = DB::table('student')->where('id', $id)->get();
-        if ($student->isEmpty() || !is_numeric($id)){
-            return view('errors/404');
-        } else {
-            return view('edit',['student' => $student->first()]);
-        }        
+        $student = Student::find($id);
+        $score = Score::find($student->latest_score_id);
+        $col = array('mc','tc','hw','bs','ks','ac');
+        foreach ($col as $c) {
+            $student->{$c} = $score->{$c};
+        }
+        return view('edit',['student' => $student]);       
     } 
 
     public function store(Request $request) {
@@ -35,26 +37,29 @@ class EditController extends Controller
         ]
 		)->validate();
 	
-		$nickname = $request->input('nickname');
-		$fullname = $request->input('fullname');
-		$kattisacct = $request->input('kattisacct');
-		$mc = $request->input('mc');
-		$tc = $request->input('tc');
-		$hw = $request->input('hw');
-		$bs = $request->input('bs');
-		$ks = $request->input('ks');
-		$ac = $request->input('ac');
-		$comment = $request->input('comment');
-		$nationality = $request->input('nationality');
-		$id = $request->input('id');
-		DB::table('student')
-			->where('id', $id)
-			->update(
-				['name' => $fullname, 'nickname' => $nickname, 'kattis' => $kattisacct,
-				'mc' => $mc, 'tc' => $tc, 'hw' => $hw, 'bs' => $bs, 'country' => $nationality,
-				'ks' => $ks, 'ac' => $ac, 'comment' => $comment]);
+        $new_score = new Score;
+        $student = Student::find($request->input('id'));
+
+        $new_score->user_id = $request->input('id');
+        $new_score->mc = $request->input('mc');
+        $new_score->tc = $request->input('tc');
+        $new_score->hw = $request->input('hw');
+        $new_score->bs = $request->input('bs');
+        $new_score->ks = $request->input('ks');
+        $new_score->ac = $request->input('ac');
+
+        $new_score->save();
+        $student->latest_score_id = $new_score->id;
+
+		$student->nickname = $request->input('nickname');
+		$student->name = $request->input('fullname');
+		$student->kattis = $request->input('kattisacct');
+		$student->comment = $request->input('comment');
+		$student->country = $request->input('nationality');
 		
-		return redirect()->action('StudentController@detail',['id' => $id]);
+        $student->save();
+		
+		return redirect()->action('StudentController@detail',['id' => $request->input('id')]);
     }      
 
     private function computeSumOf ($data) {
@@ -63,7 +68,7 @@ class EditController extends Controller
         return array_sum($arr);
     } 
 
-    public function computeSum(Request $request ) {
+    public function computeSum(Request $request) {
         $MC = $request->input('mc');
         $TC = $request->input('tc');
         $HW = $request->input('hw');

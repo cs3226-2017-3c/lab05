@@ -13,20 +13,15 @@ class Student extends Migration
      */
     public function up()
     {
-        Schema::create('student', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('nickname');
             $table->string('kattis');
             $table->string('country');
-            $table->string('mc')->default('x,x,x,x,x,x,x,x,x');
-            $table->string('tc')->default('x,x');
-            $table->string('hw')->default('x,x,x,x,x,x,x,x,x,x');
-            $table->string('bs')->default('x,x,x,x,x,x,x,x,x');
-            $table->string('ks')->default('x,x,x,x,x,x,x,x,x,x,x,x');
-            $table->string('ac')->default('x,x,x,x,x,x,x,x');  
             $table->string('avatar')->nullable();
-            $table->string('comment')->nullable();            
+            $table->string('comment')->nullable();
+            $table->string('latest_score_id');
             $table->timestamps();
         });
     }
@@ -38,6 +33,6 @@ class Student extends Migration
      */
     public function down()
     {
-        Schema::drop('student');
+        Schema::drop('students');
     }
 }
