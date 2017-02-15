@@ -18,7 +18,7 @@
           @if (Auth::guest()) @else <li class="active"><a href="/student/create">Create Mode</a></li> @endif
           @elseif(Request::is('student/*/*'))
           <li class="dropdown active">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@if(Request::is('student/*/history')) Score History Mode @elseif(Request::is('student/*/edit')) Edit Student Mode @elseif(Request::is('student/*/score')) Edit Score Mode @elseif(Request::is('student/*/delete')) Delete Mode @else @endif <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@if(Request::is('student/*/history')) History Mode @elseif(Request::is('student/*/edit')) Edit Student Mode @elseif(Request::is('student/*/score')) Edit Score Mode @elseif(Request::is('student/*/delete')) Delete Mode @else @endif <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href=".">Detail Mode</a></li> 
               @if(Request::is('student/*/history')) @else <li><a href="history">History Mode</a></li>@endif
@@ -38,16 +38,20 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Detail Mode<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/{{Request::path()}}/history">History Mode</a></li>
+              @if (Auth::guest()) @else 
               <li role="separator" class="divider"></li>
               <li><a href="/{{Request::path()}}/edit">Edit Student Mode</a></li>
               <li><a href="/{{Request::path()}}/score">Edit Score Mode</a></li>
               <li><a href="/{{Request::path()}}/delete">Delete Mode</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="/student/create">Create Mode</a></li>
+              @endif
             </ul>
           </li>
           @else
+          @if (Auth::guest()) @else
           <li><a href="/student/create">Create Mode</a></li>
+          @endif
           @endif
   			</ul>
         <ul class="nav navbar-nav navbar-right">
