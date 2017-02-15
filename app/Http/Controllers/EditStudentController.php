@@ -27,9 +27,6 @@ class EditStudentController extends Controller
       'kattisacct' => 'required|min:3|max:30',
       'nationality' => 'required',
       'avatar' => 'max:1024|image',
-      'g-recaptcha-response' => 'required|captcha',
-      ],[
-      'g-recaptcha-response.required' => 'The ReCaptcha is invalid.'
       ])->validate();
     $user_id = Auth::id();
 

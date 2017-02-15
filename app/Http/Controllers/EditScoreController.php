@@ -28,15 +28,12 @@ class EditScoreController extends Controller
 
   public function store(Request $request) {
 		Validator::make($request->all(), [ // as simple as this
-      'g-recaptcha-response' => 'required|captcha',
       'mc' => array('required','regex:/^((([0-3][.][5])|[x]|([0-4]))(,)){8}(([0-3][.][5])|[x]|([0-4]))$/'),
       'tc' => array('required','regex:/^(([0-9][.][5])|[x]|([0-9])|([1][0][.][5])|([1][0]))(,)(([0-9][.][5])|[x]|([0-9])|([1][0-3][.][05])|([1][0-3]))$/'),
       'hw' => array('required','regex:/^((([0-1][.][5])|[x]|([0-1]))(,)){9}(([0-1][.][5])|[x]|([0-1]))$/'),
       'bs' => array('required','regex:/^(([0-1]|[x])(,)){8}([0-1]|[x])$/'),
       'ks' => array('required','regex:/^(([0-1]|[x])(,)){11}([0-1]|[x])$/'),
       'ac' => array('required','regex:/^(([0-1]|[x])(,)){2}(([0-3]|[x])(,)){2}(([0-1]|[x])(,)){2}([0-6]|[x])(,)([0-6]|[x])$/'),
-      ],[
-      'g-recaptcha-response.required' => 'The ReCaptcha is invalid.'
       ]
       )->validate();
 

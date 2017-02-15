@@ -295,7 +295,6 @@ $countries = array
           {!! Form::file('avatar') !!}
         </div>
         <div class="form-group">
-          {!! app('captcha')->display(); !!}
           {!! Form::hidden('id', $student->id) !!}
         </div>
         <div class="form-group"> 
