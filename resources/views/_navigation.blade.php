@@ -48,9 +48,12 @@
               @endif
             </ul>
           </li>
+          @elseif(Request::is('bulkEdit/*') || Request::is('bulkEdit'))
+          <li class="active"><a href="/bulkEdit"">Bulk Edit Mode</a></li>
           @else
           @if (Auth::guest()) @else
           <li><a href="/student/create">Create Mode</a></li>
+          <li><a href="/bulkEdit">Bulk Edit Mode</a></li>
           @endif
           @endif
   			</ul>

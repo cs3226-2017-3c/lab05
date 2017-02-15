@@ -30,6 +30,7 @@ Route::post('student/score', 'EditScoreController@store');
 Route::get('student/{id}', 'DetailController@detail');
 Route::get('student/{id}/history', 'HistoryController@history');
 
-Route::get('bulkEdit', 'BulkEditController@edit');
-Route::post('bulkEdit', 'BulkEditController@store');
-
+Route::get('bulkEdit', function() { return view('bulkEditHome'); });
+Route::post('bulkEdit', 'BulkEditController@editHome');
+Route::get('bulkEdit/{component}/{id}', 'BulkEditController@edit');
+Route::post('bulkEdit/{component}/{id}', 'BulkEditController@store');
