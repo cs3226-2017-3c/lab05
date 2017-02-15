@@ -29,6 +29,11 @@ class CreateController extends Controller {
     $user_id = Auth::id();
 
     $new_student = new Student;
+
+    if($request->hasFile('avatar')){
+      $path = $request->file('avatar')->store("public/avatar");
+      $new_student->avatar = $path;
+    }
     $new_student->nickname = $request->input('nickname');
     $new_student->name = $request->input('fullname');
     $new_student->kattis = $request->input('kattisacct');

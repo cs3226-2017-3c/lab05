@@ -290,6 +290,10 @@ $countries = array
 	          {!! Form::label('comment', 'Specific comments:', ['class' => 'control-label']) !!}
 	          {!! Form::text('comment', null, ['class' => 'form-control']) !!}
 	        </div>
+	      <div class="form-group">
+          {!! Form::label('avatar', 'Avatar:', ['class' => 'control-label']) !!}
+          {!! Form::file('avatar') !!}
+        </div>
        		<div class="form-group">
           		{!! app('captcha')->display(); !!}
 			</div>
