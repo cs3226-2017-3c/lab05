@@ -268,7 +268,8 @@ $countries = array
 					</ul>
 				</div>
 			@endif
-			{!! Form::open() !!} {{-- Blade shortcut for creating HTML5 form --}}
+			<h2>Create Student</h2>
+			{!! Form::open(['files' => 'true']) !!} {{-- Blade shortcut for creating HTML5 form --}}
 			<div class="form-group"> {{-- Group related form components together --}}
 				{!! Form::label('nickname', 'Nick name:', ['class' => 'control-label']) !!}
 				{!! Form::text('nickname', null, ['class' => 'form-control']) !!}
@@ -286,8 +287,13 @@ $countries = array
 			{!! Form::select('nationality', $countries,  ['class' => 'form-control']) !!}
        		</div>
        		<div class="form-group">
-          		{!! app('captcha')->display(); !!}
-			</div>
+	          {!! Form::label('comment', 'Specific comments:', ['class' => 'control-label']) !!}
+	          {!! Form::text('comment', null, ['class' => 'form-control']) !!}
+	        </div>
+	      <div class="form-group">
+          {!! Form::label('avatar', 'Avatar:', ['class' => 'control-label']) !!}
+          {!! Form::file('avatar') !!}
+        </div>
 			<div class="form-group"> {{-- Don't forget to create a submit button --}}
 				{!! Form::submit('Create', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
 			</div>

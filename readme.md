@@ -5,11 +5,52 @@ This is only for lab of module CS3226 of NUS. This guide is for teammates to set
 ## Commit note
 Put a tag like [M][V][C][Js] etc. at the front of commit note.
 
+**!! Relate your commit to at least one issue.**
+
 
 ## Pull from server
 1. Log in through Terminal/Putty, `ssh user@188.166.240.12` and key in your password.
 2. Direct to Laravel project, `cd /var/www/html/cs3226`.
 3. Pull from GitHub, `sudo git pull`, and key in your password (only for the first time of each session).
+
+## Current database schema
+* Model ``Student``
+  1. id (auto increment)
+  2. name 
+  3. nickname
+  4. kattis => kattis account
+  5. country => 2-letter country code, e.g. SG, CN
+  6. latest_score_id => nullable, but should not be null except creation
+  7. avatar => path of uploaded avatar,  => nullable
+  8. comment => nullable
+  9. created_by => authorized user id
+  10. updated_by => authorized user id
+  11. created_at (autogenerate)
+  12. updated_at (autogenerate)
+
+
+* Model ``Scores`` 
+  1. id (auto increment)
+  2. student_id
+  3. mc => x,x,x,x,x,x,x,x,x : 0<=x<=4
+  4. tc => x,y : 0<=x<=10.5, 0<=y<=13.5 
+  5. hw => x,x,x,x,x,x,x,x,x,x : 0<=x<=1.5
+  6. bs  => x,x,x,x,x,x,x,x,x : 0<=x<=1
+  7. ks => x,x,x,x,x,x,x,x,x,x,x,x : 0<=x<=1
+  8. ac => x,x,y,y,x,x,z,x : 0<=x<=1, 0<=y<=3, 0<=z<=6 
+  9. effective_from
+  10. created_by => authorized user id
+  11. updated_by => authorized user id
+  12. created_at (autogenerate)
+  13. updated_at (autogenerate)
+
+```php
+use App\Student
+
+$new_student = new Student;
+// Setting all information in between
+$new_student->save();
+```
 
 ## Setup environment locally
 
@@ -101,19 +142,3 @@ ln -s <project directory>/vendor/components/flag-icon-css/flags <project directo
 ```
 $ php artisan serve
 ```
-
-## Current database schema
-* Columns:
-  1. id => auto increment
-  2. name 
-  3. nickname
-  4. kattis => kattis account
-  5. country => 2-letter country code, e.g. SG, CN
-  6. mc => x,x,x,x,x,x,x,x,x : 0<=x<=4.0
-  7. tc => x,y : 0<=x<=10.5, 0<=y<=13.5
-  8. hw => x,x,x,x,x,x,x,x,x,x : 0<=x<=1.5
-  9. bs  => x,x,x,x,x,x,x,x,x : 0<=x<=1
-  10. ks => x,x,x,x,x,x,x,x,x,x,x,x : 0<=x<=1
-  11. ac => x,x,y,y,x,x,z,x : 0<=x<=1, 0<=y<=3, 0<=z<=6
-  12. avatar => path of uploaded avatar,  => nullable
-  13. comment => nullable
