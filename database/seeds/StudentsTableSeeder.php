@@ -25,6 +25,8 @@ class StudentsTableSeeder extends Seeder
                 'comment' => $faker->text($maxNbChars = 100),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+                'created_by' => 1,
+                'updated_by'=> 1,
                 'latest_score_id' => $i+1,
             ]);
         }
@@ -41,6 +43,8 @@ class StudentsTableSeeder extends Seeder
                 'effective_from' => Carbon::now(),
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
+                'created_by' => 1,
+                'updated_by'=> 1,
             ]);
         }
     }
