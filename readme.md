@@ -11,6 +11,38 @@ Put a tag like [M][V][C][Js] etc. at the front of commit note.
 2. Direct to Laravel project, `cd /var/www/html/cs3226`.
 3. Pull from GitHub, `sudo git pull`, and key in your password (only for the first time of each session).
 
+## Current database schema
+* Model ``Student``
+  1. id => auto increment
+  2. name 
+  3. nickname
+  4. kattis => kattis account
+  5. country => 2-letter country code, e.g. SG, CN
+  6. latest_score_id => nullable, but should not be null except creation
+  7. avatar => path of uploaded avatar,  => nullable
+  8. comment => nullable
+  9. created_at 
+  10. updated_at
+
+* Model ``Scores`` 
+  1. student_id
+  2. mc => x,x,x,x,x,x,x,x,x : 0<=x<=4.0
+  3. tc => x,y : 0<=x<=10.5, 0<=y<=13.5
+  4. hw => x,x,x,x,x,x,x,x,x,x : 0<=x<=1.5
+  5. bs  => x,x,x,x,x,x,x,x,x : 0<=x<=1
+  6. ks => x,x,x,x,x,x,x,x,x,x,x,x : 0<=x<=1
+  7. ac => x,x,y,y,x,x,z,x : 0<=x<=1, 0<=y<=3, 0<=z<=6 
+  8. created_at 
+  9. updated_at
+
+```php
+use App\Student
+
+$new_student = new Student;
+// Setting all information in between
+$new_student->save();
+```
+
 ## Setup environment locally
 
 
@@ -101,27 +133,3 @@ ln -s <project directory>/vendor/components/flag-icon-css/flags <project directo
 ```
 $ php artisan serve
 ```
-
-## Current database schema
-* Model ``Student``
-  1. id => auto increment
-  2. name 
-  3. nickname
-  4. kattis => kattis account
-  5. country => 2-letter country code, e.g. SG, CN
-  6. latest_score_id => nullable, but should not be null except creation
-  7. avatar => path of uploaded avatar,  => nullable
-  8. comment => nullable
-  9. created_at 
-  10. updated_at
-
-* Model ``Scores`` 
-  1. student_id
-  2. mc => x,x,x,x,x,x,x,x,x : 0<=x<=4.0
-  3. tc => x,y : 0<=x<=10.5, 0<=y<=13.5
-  4. hw => x,x,x,x,x,x,x,x,x,x : 0<=x<=1.5
-  5. bs  => x,x,x,x,x,x,x,x,x : 0<=x<=1
-  6. ks => x,x,x,x,x,x,x,x,x,x,x,x : 0<=x<=1
-  7. ac => x,x,y,y,x,x,z,x : 0<=x<=1, 0<=y<=3, 0<=z<=6 
-  8. created_at 
-  9. updated_at
