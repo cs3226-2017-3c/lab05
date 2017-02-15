@@ -39,6 +39,13 @@ class BulkEditController extends Controller
     } 
 
     public function edit($component, $id) {
+        $componentIndexMax = [ 'mc' => 9, 'tc' => 2, 'hw' => 10, 'bs' => 9, 'ks' => 12];
+
+        if (!is_numeric($id) || !in_array($component, ['mc','tc','hw','bs','ks']) || 
+            $id > $componentIndexMax[$component] || $id<=0){
+            return view('errors/404');
+        }
+
         $students = Student::all();
 
         foreach($students as $student){
