@@ -13,7 +13,7 @@ Put a tag like [M][V][C][Js] etc. at the front of commit note.
 
 ## Current database schema
 * Model ``Student``
-  1. id => auto increment
+  1. id (auto increment)
   2. name 
   3. nickname
   4. kattis => kattis account
@@ -21,19 +21,21 @@ Put a tag like [M][V][C][Js] etc. at the front of commit note.
   6. latest_score_id => nullable, but should not be null except creation
   7. avatar => path of uploaded avatar,  => nullable
   8. comment => nullable
-  9. created_at 
-  10. updated_at
+  9. created_at (autogenerate)
+  10. updated_at (autogenerate)
 
 * Model ``Scores`` 
-  1. student_id
-  2. mc => x,x,x,x,x,x,x,x,x : 0<=x<=4.0
-  3. tc => x,y : 0<=x<=10.5, 0<=y<=13.5
-  4. hw => x,x,x,x,x,x,x,x,x,x : 0<=x<=1.5
-  5. bs  => x,x,x,x,x,x,x,x,x : 0<=x<=1
-  6. ks => x,x,x,x,x,x,x,x,x,x,x,x : 0<=x<=1
-  7. ac => x,x,y,y,x,x,z,x : 0<=x<=1, 0<=y<=3, 0<=z<=6 
-  8. created_at 
-  9. updated_at
+  1. id (auto increment)
+  2. student_id
+  3. mc => x,x,x,x,x,x,x,x,x : 0<=x<=4
+  4. tc => x,y : 0<=x<=10.5, 0<=y<=13.5 
+  5. hw => x,x,x,x,x,x,x,x,x,x : 0<=x<=1.5
+  6. bs  => x,x,x,x,x,x,x,x,x : 0<=x<=1
+  7. ks => x,x,x,x,x,x,x,x,x,x,x,x : 0<=x<=1
+  8. ac => x,x,y,y,x,x,z,x : 0<=x<=1, 0<=y<=3, 0<=z<=6 
+  9. effective_from
+  10. created_at (autogenerate)
+  11. updated_at (autogenerate)
 
 ```php
 use App\Student
