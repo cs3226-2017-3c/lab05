@@ -21,8 +21,11 @@ Put a tag like [M][V][C][Js] etc. at the front of commit note.
   6. latest_score_id => nullable, but should not be null except creation
   7. avatar => path of uploaded avatar,  => nullable
   8. comment => nullable
-  9. created_at (autogenerate)
-  10. updated_at (autogenerate)
+  9. created_by => authorized user id
+  10. updated_by => authorized user id
+  11. created_at (autogenerate)
+  12. updated_at (autogenerate)
+
 
 * Model ``Scores`` 
   1. id (auto increment)
@@ -34,8 +37,10 @@ Put a tag like [M][V][C][Js] etc. at the front of commit note.
   7. ks => x,x,x,x,x,x,x,x,x,x,x,x : 0<=x<=1
   8. ac => x,x,y,y,x,x,z,x : 0<=x<=1, 0<=y<=3, 0<=z<=6 
   9. effective_from
-  10. created_at (autogenerate)
-  11. updated_at (autogenerate)
+  10. created_by => authorized user id
+  11. updated_by => authorized user id
+  12. created_at (autogenerate)
+  13. updated_at (autogenerate)
 
 ```php
 use App\Student
