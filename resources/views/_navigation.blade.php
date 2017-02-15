@@ -15,19 +15,22 @@
   				<li id="home" @if(Request::path()=="/")class="active"@endif}}><a href="/">Home</a></li>
   				<li id="help" @if(Request::is('help'))class="active"@endif}}><a href="/help">Help</a></li>
           @if(Request::is('student/create'))
-          <li class="active"><a href="/student/create">Create Mode</a></li>
+          @if (Auth::guest()) @else <li class="active"><a href="/student/create">Create Mode</a></li> @endif
           @elseif(Request::is('student/*/*'))
           <li class="dropdown active">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@if(Request::is('student/*/history')) Score History Mode @elseif(Request::is('student/*/edit')) Edit Student Mode @elseif(Request::is('student/*/score')) Edit Score Mode @elseif(Request::is('student/*/delete')) Delete Mode @else @endif <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href=".">Detail Mode</a></li> 
               @if(Request::is('student/*/history')) @else <li><a href="history">History Mode</a></li>@endif
+              @if (Auth::guest())
+              @else
               <li role="separator" class="divider"></li>
               @if(Request::is('student/*/edit')) @else <li><a href="edit">Edit Student Mode</a></li>@endif
               @if(Request::is('student/*/score')) @else <li><a href="score">Edit Score Mode</a></li>@endif
               @if(Request::is('student/*/delete')) @else <li><a href="delete">Delete Mode</a></li>@endif
               <li role="separator" class="divider"></li>
               <li><a href="/student/create">Create Mode</a></li>
+              @endif
             </ul>
           </li>
           @elseif(Request::is('student/*'))
