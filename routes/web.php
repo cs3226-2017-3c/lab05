@@ -22,5 +22,7 @@ Route::get('student/{id}/delete', 'DeleteController@delete');
 Route::post('student/delete', 'DeleteController@store');
 Route::get('student/{id}/edit', 'EditController@edit');
 Route::post('student/{id}/edit', 'EditController@store');
+Route::get('bulkEdit', 'BulkEditController@edit');
+Route::post('bulkEdit', 'BulkEditController@store');
 
 
