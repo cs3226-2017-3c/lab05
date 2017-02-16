@@ -45,6 +45,7 @@
               <li><a href="/{{Request::path()}}/delete">Delete Mode</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="/student/create">Create Mode</a></li>
+              <li><a href="/bulkEdit">Bulk Edit Mode</a></li>
               @endif
             </ul>
           </li>
