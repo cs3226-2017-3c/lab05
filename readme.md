@@ -2,11 +2,14 @@
 
 This is only for lab of module CS3226 of NUS. This guide is for teammates to setup website locally correctly.
 
+## Admin password
+username: admin@example.com
+password: 123123
+
 ## Commit note
 Put a tag like [M][V][C][Js] etc. at the front of commit note.
 
 **!! Relate your commit to at least one issue.**
-
 
 ## Pull from server
 1. Log in through Terminal/Putty, `ssh user@188.166.240.12` and key in your password.
