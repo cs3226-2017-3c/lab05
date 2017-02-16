@@ -132,7 +132,7 @@
 					@endif
 						<td>{{$loop->iteration}}</td>
 						<td class="hidden-xs"><span class="flag-icon flag-icon-{{strtolower($s->country)}}"></span>{{$s->country}}</td>
-						<td><img class="hidden-xs" alt="" src="img/prof.png" height="15"><a href="student/{{$s->id}}">{{$s->name}}</a></td>
+						<td><img class="hidden-xs" alt="" src="img/kattis.png" height="15"><a href="student/{{$s->id}}">{{$s->name}}</a></td>
 					@if($s->mc == $highest["mc"])
 					<td class="orange hidden-xs">{{$s->mc}}</td>
 					@else
