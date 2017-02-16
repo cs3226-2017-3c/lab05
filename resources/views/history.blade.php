@@ -41,12 +41,30 @@
             <td>{{$sc->sum}}</td>
             <td>{{$sc->effective_from}}</td>
             @if (Auth::guest()) @else 
-            <td><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="event.preventDefault();$('#delete-form input[name=\'id\']').val({{$sc->id}});$('#delete-form').submit();">Delete</button></td>
+            <td><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit">Edit</button> <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" onclick="event.preventDefault();$('#delete-form input[name=\'id\']').val({{$sc->id}}); $('.modal-body strong').text({{$sc->id}});">Delete</button></td>
             @endif
         @endforeach
           </tr>
         </tbody>
       </table>
+      <!-- Modal -->
+      <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Delete Score History</h5>
+            </div>
+            <div class="modal-body">
+              You are going to delete score history with id <strong id="delete-id"></strong>...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" onclick="$('#delete-form').submit();">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {!! Form::open(['action' => ['DeleteScoreController@store', $student->id], 'id' => 'delete-form']) !!}
       {!! Form::hidden('id') !!}
       {!! Form::close() !!}
