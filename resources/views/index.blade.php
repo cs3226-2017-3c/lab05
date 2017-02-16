@@ -1,5 +1,3 @@
-@section('main') <!-- define a section called main -->
-
 <?php
 
 // Determining value of first, second, third and last
@@ -195,4 +193,3 @@
 		</div>
 	</div>
 </div>
-
