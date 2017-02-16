@@ -27,7 +27,10 @@ class DeleteController extends Controller
     
     $id = $request->input('id');
     $student = Student::find($id);
+    $name = $student->name
     $student->delete();
+
+    flash('Student <strong>' . $name . '</strong> was deleted!', 'success');
     return redirect()->action('StudentController@index'); 
   }      
 }

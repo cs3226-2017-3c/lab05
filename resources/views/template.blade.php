@@ -19,12 +19,15 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito+Sans%7cRaleway" rel="stylesheet">
 </head>
 <body>
-   @include('_navigation')
+  <div class="container">
+    @include('flash::message')
+  </div>
+  @include('_navigation')
    
-   @yield('main')
+  @yield('main')
    
-   @include('_footer')
+  @include('_footer')
 
-   @yield('footer')
+  @yield('footer')
 </body>
 </html>

@@ -46,6 +46,7 @@ class EditStudentController extends Controller
 
     $student->save();
 
+    flash('Info of student <strong>' . $student->name . '</strong> was updated!', 'success');
     return redirect()->action('DetailController@detail',['id' => $id]);
   }     
 }

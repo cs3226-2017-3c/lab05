@@ -51,6 +51,7 @@ class CreateController extends Controller {
     $new_student->latest_score_id = $new_score->id;
     $new_student->save();
 
+    flash('Student <strong>' . $new_student->name . '</strong> was created!', 'success');
     return redirect()->action('DetailController@detail',['id' => $id]);
 
   }
