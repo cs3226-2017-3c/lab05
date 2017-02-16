@@ -69,7 +69,7 @@ class BulkEditController extends Controller
             case 'bs':
                 $component_full = 'Problem B';
                 break;
-            case 'hw':
+            case 'ks':
                 $component_full = 'Kattis Set';
                 break;
             default:
@@ -82,7 +82,7 @@ class BulkEditController extends Controller
 
     public function store(Request $request, $component, $index) {
         $regex['mc'] = array('required','regex:/^(([0-3][.][5])|[x]|([0-4]))$/');
-        $regex['tc'] = array('required','regex:/^(([0-9][.][5])|[x]|([0-9])|([1][0-3][.][05])|([1][0-3]))$/');
+        $regex['tc'] = array('required','regex:/^(([0-9][.][5])|[x]|([0-9])|([1][0-3][.][5])|([1][0-3]))$/');
 		$regex['hw'] = array('required','regex:/^(([0-1][.][5])|[x]|([0-1]))$/');
         $regex['bs'] = array('required','regex:/^([0-1]|[x])$/');
         $regex['ks'] = array('required','regex:/^([0-1]|[x])$/');
@@ -126,7 +126,8 @@ class BulkEditController extends Controller
 
             $student->save();            
         }
-       
+
+        flash('Score of <strong>' . count($request->input($component)) . '</strong> student(s) was updated!', 'success');
 		return redirect()->action('StudentController@index');
     }      
 }
