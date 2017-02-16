@@ -21,7 +21,9 @@
             <th>DIL</th>
             <th>Sum</th>
             <th>Effective Date</th>
-            <th></th>
+            @if (Auth::guest()) @else 
+            <th>Action</th>
+            @endif
           </tr>
         </thead>
         <tbody>
@@ -38,12 +40,16 @@
             <td>{{$sc->dil}}</td>
             <td>{{$sc->sum}}</td>
             <td>{{$sc->effective_from}}</td>
-            <td><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit">Edit</button> <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete">Delete</button></td>
+            @if (Auth::guest()) @else 
+            <td><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit">Edit</button> <button type="button" class="btn btn-sm btn-danger" onclick="event.preventDefault();$('#delete-form input[name=\'id\']').val({{$sc->id}});$('#delete-form').submit();">Delete</button></td>
+            @endif
         @endforeach
           </tr>
         </tbody>
       </table>
-
+      {!! Form::open(['action' => ['DeleteScoreController@store', $student->id], 'id' => 'delete-form']) !!}
+      {!! Form::hidden('id') !!}
+      {!! Form::close() !!}
     </div>
   </div>
 </div>

@@ -8,7 +8,7 @@ use App\Student;
 
 use Validator;
 
-class EditStudentController extends Controller
+class EditController extends Controller
 {
   public function __construct()
   {
