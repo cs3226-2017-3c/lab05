@@ -52,8 +52,13 @@
           <li class="active"><a href="/bulkEdit"">Bulk Edit Mode</a></li>
           @else
           @if (Auth::guest()) @else
-          <li><a href="/student/create">Create Mode</a></li>
-          <li><a href="/bulkEdit">Bulk Edit Mode</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/student/create">Create Mode</a></li>
+              <li><a href="/bulkEdit">Bulk Edit Mode</a></li>
+            </ul>
+          </li>
           @endif
           @endif
   			</ul>
