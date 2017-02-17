@@ -16,6 +16,8 @@ class StudentsTableSeeder extends Seeder
 
         $limit = 50;
 
+        $week = 12;
+
         for ($i = 0; $i < $limit; $i++) {
             DB::table('students')->insert([ //,
                 'name'=>$faker->unique()->name,
@@ -27,36 +29,38 @@ class StudentsTableSeeder extends Seeder
                 'updated_at' => Carbon::now(),
                 'created_by' => 1,
                 'updated_by'=> 1,
-                'latest_score_id' => $i+1,
+                'latest_score_id' => $week * $i+1,
             ]);
         }
 
         for ($i = 0; $i < $limit; $i++) {
-            DB::table('scores')->insert([ //,
-                'student_id' => $i+1,
-                'mc' => $this->generate_mc(),
-                'tc' => $this->generate_tc(),
-                'hw' => $this->generate_hw(),
-                'bs' => $this->generate_bs(),
-                'ks' => $this->generate_ks(),
-                'ac' => $this->generate_ac(),
-                'effective_from' => Carbon::now(),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
-                'created_by' => 1,
-                'updated_by'=> 1,
-            ]);
+            for ($j = 0; $j < $week; $j++) {
+                DB::table('scores')->insert([ //,
+                    'student_id' => $i+1,
+                    'mc' => $this->generate_mc($week-$j),
+                    'tc' => $this->generate_tc($week-$j),
+                    'hw' => $this->generate_hw($week-$j),
+                    'bs' => $this->generate_bs($week-$j),
+                    'ks' => $this->generate_ks($week-$j),
+                    'ac' => $this->generate_ac($week-$j),
+                    'effective_from' => Carbon::now()->subWeeks($j),
+                    'created_at' => Carbon::now()->subWeeks($j),
+                    'updated_at' => Carbon::now()->subWeeks($j),
+                    'created_by' => 1,
+                    'updated_by'=> 1,
+                ]);
+            }
         }
     }
 
-    private function generate_mc()
+    private function generate_mc($j)
     {
         $faker = Faker\Factory::create();
         $min = 0;
         $max = 4;
         $n = 9;
         $arr = [];
-        $z = min($faker->randomDigit, $n);
+        $z = min($j, $n);
         for ($i=0;$i<$n;$i++){
             if($i > $z){
                 $arr[] = 'x';
@@ -67,7 +71,7 @@ class StudentsTableSeeder extends Seeder
         return implode(",", $arr);
     }
 
-    private function generate_tc()
+    private function generate_tc($j)
     {
         $faker = Faker\Factory::create();
         $x_min = 0;
@@ -79,14 +83,14 @@ class StudentsTableSeeder extends Seeder
         $arr[] = $faker->numberBetween($y_min*2, $y_max*2)/2;
         return implode(",", $arr);
     }
-    private function generate_hw()
+    private function generate_hw($j)
     {
         $faker = Faker\Factory::create();
         $min = 0;
         $max = 1.5;
         $n = 10;
         $arr = [];
-        $z = min($faker->randomDigit, $n);
+        $z = min($j, $n);
         for ($i=0;$i<$n;$i++){
             if($i > $z){
                 $arr[] = 'x';
@@ -96,14 +100,14 @@ class StudentsTableSeeder extends Seeder
         }
         return implode(",", $arr);
     }
-    private function generate_bs()
+    private function generate_bs($j)
     {
         $faker = Faker\Factory::create();
         $min = 0;
         $max = 1;
         $n = 9;
         $arr = [];
-        $z = min($faker->randomDigit, $n);
+        $z = min($j, $n);
         for ($i=0;$i<$n;$i++){
             if($i > $z){
                 $arr[] = 'x';
@@ -113,14 +117,14 @@ class StudentsTableSeeder extends Seeder
         }
         return implode(",", $arr);
     }
-    private function generate_ks()
+    private function generate_ks($j)
     {
         $faker = Faker\Factory::create();
         $min = 0;
         $max = 1;
         $n = 12;
         $arr = [];
-        $z = min($faker->randomDigit, $n);
+        $z = min($j, $n);
         for ($i=0;$i<$n;$i++){
             if($i > $z){
                 $arr[] = 'x';
@@ -130,7 +134,7 @@ class StudentsTableSeeder extends Seeder
         }
         return implode(",", $arr);
     }
-    private function generate_ac()
+    private function generate_ac($j)
     {
         $faker = Faker\Factory::create();
         $x_min = 0;
