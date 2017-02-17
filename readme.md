@@ -137,7 +137,7 @@ $ php artisan db:seed --class=StudentsTableSeeder --env=local
 Add two symbolic links
 ```
 php artisan storage:link
-ln -s <project directory>/vendor/components/flag-icon-css/flags <project directory>/public/flags
+ln -s ../vendor/components/flag-icon-css/flags public/flags
 ```
 
 
