@@ -90,7 +90,9 @@
       var historyData = {
         labels : labels,
         datasets : [{
-          fillColor : "rgba(240, 127, 110, 0.3)",
+          label: "sum",
+          fill: false,
+          lineTension: 0.1,
           strokeColor : "#f56954",
           pointColor : "#A62121",
           pointStrokeColor : "#741F1F",
