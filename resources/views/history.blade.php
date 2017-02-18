@@ -7,6 +7,7 @@
   <div class="row">
     <div class="col-md-12" >
       <h2>Score History for <strong>{{ $student->name }}</strong></h2>
+      <canvas class = "hidden-xs" id="historyChart" width="1000" height="400"></canvas>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -72,5 +73,41 @@
   </div>
 </div>
 <!-- Modal -->
+@endsection
 
-  @endsection
+@section('footer')
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <!-- draw history chart -->
+  <script>
+    $(function(){
+      var labels = [],data=[];
+      @foreach($score as $sc)
+        var date = selectDate("{{$sc->effective_from}}");
+        labels.push(date);
+        data.push("{{$sc->sum}}");
+      @endforeach
+
+      var historyData = {
+        labels : labels,
+        datasets : [{
+          fillColor : "rgba(240, 127, 110, 0.3)",
+          strokeColor : "#f56954",
+          pointColor : "#A62121",
+          pointStrokeColor : "#741F1F",
+          data : data
+        }]
+      };
+      var history = $("#historyChart");
+    
+      var chartInstance = new Chart(history, {
+        type: 'line',
+        data: historyData,
+      });
+    });
+
+    function selectDate(date) {
+      var split = date.split(" ");
+      return split[0];
+    }
+  </script>
+@endsection
