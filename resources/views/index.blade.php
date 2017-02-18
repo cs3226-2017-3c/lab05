@@ -105,15 +105,15 @@
 						<th class="rank">R</th>
 						<th class="hidden-xs flag" onclick= "setAllSameHeight()">Flag</th>
 						<th onclick="setAllSameHeight()">Name</th>
-						<th class="hidden-xs sortInitialOrder-desc" onclick= "setAllSameHeight()">MC</th>
-						<th class="hidden-xs sortInitialOrder-desc" onclick= "setAllSameHeight()">TC</th>
-						<th class="sortInitialOrder-desc" onclick="setAllSameHeight()">SPE</th>
-						<th class="hidden-xs sortInitialOrder-desc" onclick= "setAllSameHeight()">HW</th>
-						<th class="hidden-xs sortInitialOrder-desc" onclick= "setAllSameHeight()">Bs</th>
-						<th class="hidden-xs sortInitialOrder-desc" onclick= "setAllSameHeight()">KS</th>
-						<th class="hidden-xs sortInitialOrder-desc" onclick= "setAllSameHeight()">Ac</th>
-						<th class="sortInitialOrder-desc" onclick="setAllSameHeight()">DIL</th>
-						<th class="sortInitialOrder-desc" onclick="setAllDifferentHeight()">Sum</th>
+						<th class="hidden-xs sortInitialOrder-desc" onclick= "setHeightByAttr(MC)">MC</th>
+						<th class="hidden-xs sortInitialOrder-desc" onclick= "setHeightByAttr(TC)">TC</th>
+						<th class="sortInitialOrder-desc" onclick="setHeightByAttr(SPE)">SPE</th>
+						<th class="hidden-xs sortInitialOrder-desc" onclick= "setHeightByAttr(HW)">HW</th>
+						<th class="hidden-xs sortInitialOrder-desc" onclick= "setHeightByAttr(Bs)">Bs</th>
+						<th class="hidden-xs sortInitialOrder-desc" onclick= "setHeightByAttr(KS)">KS</th>
+						<th class="hidden-xs sortInitialOrder-desc" onclick= "setHeightByAttr(Ac)">Ac</th>
+						<th class="sortInitialOrder-desc" onclick="setHeightByAttr(DIL)">DIL</th>
+						<th class="sortInitialOrder-desc" onclick="setHeightByAttr(Sum)">Sum</th>
 					</tr>
 				</thead>
 				<tbody>
