@@ -17,7 +17,8 @@
   <!-- Custom styles for this template -->
   <link href="/css/navbar.css" rel="stylesheet">
   <link href="/css/flag-icon.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans%7cRaleway" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans%7cRaleway" rel="stylesheet"> -->
 </head>
 <body>
   <div class="container">
