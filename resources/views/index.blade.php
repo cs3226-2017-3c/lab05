@@ -98,7 +98,7 @@
 
 <div class="container">
 	<div class="row">
-		<p>The Ranklist is last updated at {{$update}}</p>
+		<h5>The Ranklist is last updated at {{$update}}</h5>
 	</div>
 	<div class="row">
 		<div class="col-xs-12">

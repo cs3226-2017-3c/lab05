@@ -17,6 +17,7 @@ class DetailController extends Controller {
             return view('errors/404');
         }
         $score = Score::find($student->latest_score_id);
+        $modifiedDate = $score->effective_from;
         $col = array('mc','tc','hw','bs','ks','ac');
         foreach ($col as $c) {
             $student->{$c.'_i'} = explode(",", $score->{$c});
@@ -42,7 +43,7 @@ class DetailController extends Controller {
             return $a->sum;
         });
         
-        return view('detail',['student' => $student, 'leader' => $students->first()]);
+        return view('detail',['student' => $student, 'leader' => $students->first(), 'update' => $modifiedDate]);
         
     }
 }
