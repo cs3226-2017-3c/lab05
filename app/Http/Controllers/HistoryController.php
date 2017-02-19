@@ -10,7 +10,7 @@ use Validator;
 class HistoryController extends Controller {
     public function history($id) {
         $student = Student::find($id);
-        $score = Score::where('student_id', $id)->orderBy('effective_from', 'desc')->get();
+        $score = Score::where('student_id', $id)->orderBy('effective_from', 'asc')->get();
         $col = array('mc','tc','hw','bs','ks','ac');
         foreach ($score as $sc){
             foreach ($col as $c) {
