@@ -98,6 +98,9 @@
 
 <div class="container">
 	<div class="row">
+		<p>The Ranklist is last updated at {{$update}}</p>
+	</div>
+	<div class="row">
 		<div class="col-xs-12">
 			<table id="myTable" class="table table-condensed tablesorter">
 				<thead>

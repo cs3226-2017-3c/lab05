@@ -33,8 +33,13 @@ class StudentController extends Controller
     public function indexWithdata() { 
         $students = Student::all();
         $col = array('mc','tc','hw','bs','ks','ac');
+        $modifiedDate = "1970-01-01 00:00:00";
         foreach($students as $student){
             $score = Score::find($student->latest_score_id);
+            $thisDate = $score->effective_from;
+            if (strcmp($modifiedDate, $thisDate) < 0) {
+                $modifiedDate = $thisDate;
+            }
             foreach ($col as $c) {
                 $student->{$c.'_i'} = explode(",", $score->{$c});
                 $student->{$c} = array_sum($student->{$c.'_i'});
@@ -47,6 +52,6 @@ class StudentController extends Controller
             return $a->sum;
         });
 
-        return response()->json(array('htmlString'=> View::make('index', ['student' => $students])->render(), 200));
+        return response()->json(array('htmlString'=> View::make('index', ['student' => $students, 'update' => $modifiedDate])->render(), 200));
     }    
 }
