@@ -13,7 +13,8 @@
   		<div id="navbar" class="navbar-collapse collapse">
   			<ul class="nav navbar-nav">
   				<li id="home" @if(Request::path()=="/")class="active"@endif}}><a href="/">Home</a></li>
-  				<li id="help" @if(Request::is('help'))class="active"@endif}}><a href="/help">Help</a></li>
+  				<li id="history" @if(Request::path()=="history")class="active"@endif}}><a href="/history">History</a></li>
+          <li id="help" @if(Request::is('help'))class="active"@endif}}><a href="/help">Help</a></li>
           @if(Request::is('student/create'))
           @if (Auth::guest()) @else <li class="active"><a href="/student/create">Create Mode</a></li> @endif
           @elseif(Request::is('student/*/*'))
