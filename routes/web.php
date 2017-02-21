@@ -39,3 +39,10 @@ Route::post('bulkEdit/{component}/{id}', 'BulkEditController@store');
 Route::get('history', 'HistoryController@history');
 Route::get('student/{id}', 'DetailController@detail');
 Route::get('student/{id}/history', 'HistoryController@studentHistory');
+
+
+//Password Reset Routes
+Route::get('password/reset/{token?}', 'Http\Controllers\Auth\ResetPasswordController@showResetForm');
+Route::post('password/email', 'Http\Controllers\Auth\ResetPasswordController@sendResetLinkemail');
+Route::post('password/reset', 'Http\Controllers\Auth\ResetPasswordController@reset');
+
