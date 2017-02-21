@@ -5,11 +5,10 @@ Not Found
 @section('main')
 <!-- Main component for a primary marketing message or call to action -->
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-12" >
-      <p>404 - Not Fount.</p>
-    </div>
-  </div>
+<div class="row" style="text-align:center">
+    <h1>404 - Page Not Found</h1>
+    <p>Hey Bro, the page you were trying to view does not exist. You may go to our <a href="/">home page</a>.</p>
+</div>
 </div>
 <!-- /container -->
 @endsection
