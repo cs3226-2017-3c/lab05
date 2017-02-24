@@ -10,24 +10,22 @@ use Validator;
 class HistoryController extends Controller {
     public function studentHistory($id) {
         $student = Student::find($id);
-        $score = Score::where('student_id', $id)->orderBy('effective_from', 'asc')->get();
-        $col = array('mc','tc','hw','bs','ks','ac');
-        foreach ($score as $sc){
-            foreach ($col as $c) {
-                $sc->{$c.'_i'} = explode(",", $sc->{$c});
-                $sc->{$c} = array_sum($sc->{$c.'_i'});
-            }
-                $sc->spe = $sc->mc+$sc->tc;
-                $sc->dil = $sc->hw+$sc->bs+$sc->ks+$sc->ac;
-                $sc->sum = $sc->spe + $sc->dil;
-        }
-        return view('studentHistory',['student' => $student, 'score' => $score]);
+        $scores = Score::where('student_id', $id)->orderBy('effective_from', 'asc')->get();
+        
+        $scores = $this->constructScores($scores);
+        return view('studentHistory',['student' => $student, 'score' => $scores]);
         
     }
 
     public function history() {
-        $col = array('mc','tc','hw','bs','ks','ac');
         $scores = Score::all();
+        $scores = $this->constructScores($scores);
+
+        return view('history',['score' => $scores]);
+    }
+
+    private function constructScores($scores) {
+        $col = array('mc','tc','hw','bs','ks','ac');
         foreach($scores as $score) {
             $student = Student::find($score->student_id);
             $score->student_name = $student->name;
@@ -42,7 +40,6 @@ class HistoryController extends Controller {
         $scores = $scores->sortBy(function ($a, $key) {
             return sprintf('%-12s%s', $a->student_id, $a->effective_from);
         });
-
-        return view('history',['score' => $scores]);
+        return $scores;
     }
 }

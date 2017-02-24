@@ -8,6 +8,7 @@ Student History
 <div class="row">
 	<div class="hidden-xs hidden-sm hidden-md col-lg-12" >
 		<canvas id="historyChart" width="1000" height="400"></canvas>
+    <div id="js-legend" class="chart-legend"></div>
 	</div>
 	<div class="hidden-lg col-md-12">
 		<p>View in bigger screen for the history statistics=P</p>
@@ -32,7 +33,10 @@ Student History
       	var studentName = "{{$sc->student_name}}";
       	if (currName != studentName) {
       		if (data.length > 0) {
-      			dataSet = {label: currName, borderColor: CSS_COLOR_NAMES[currStudent], backgroundColor: CSS_COLOR_NAMES[currStudent], fill: false, lineTension: 0, data: data};
+      			dataSet = {label: currName, fill: false, lineTension: 0, 
+              backgroundColor: CSS_COLOR_NAMES[currStudent],
+              borderColor: CSS_COLOR_NAMES[currStudent],
+              pointRadius: 0, data: data};
       			arrayDataSets.push(dataSet);
       			data = [];
       			currWeek = 0;
@@ -65,10 +69,22 @@ Student History
         datasets : arrayDataSets
       };
       var history = $("#historyChart");
-    
+      var chartOptions = {
+        title: {
+          display: true,
+          fontSize: 20,
+          text: "Students\' Sum of Score over Week"
+        },
+        legend: {
+            display: true,
+            
+        }
+      };
+
       var chartInstance = new Chart(history, {
         type: 'line',
         data: historyData,
+        options: chartOptions
       });
     });
 
