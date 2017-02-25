@@ -43,6 +43,20 @@ class AchievementController extends Controller
 			return view('errors/404');
 		}		
 		
+		$student = Student::find($id);
+		if(!$student){
+			return view('errors/404');
+		}
+		$students = Student::all();
+        $col = array('mc','tc','hw','bs','ks','ac');
+        foreach($students as $s){
+            $score = Score::find($s->latest_score_id);
+            foreach ($col as $c) {
+                $s->{$c.'_i'} = explode(",", $score->{$c});
+                $s->{$c} = array_sum($s->{$c.'_i'});
+            }
+        }
+		
 		switch ($component){
 			case 'lib':
 				$component_full = 'Let it begins';
@@ -72,7 +86,7 @@ class AchievementController extends Controller
 				break;
 		}
 
-		return view('achievementDetail',['component' => $component, 'component_full' => $component_full,'id' => $id]);
+		return view('achievementDetail',['component' => $component, 'component_full' => $component_full,'id' => $id,'student' => $student]);
 	}	
 	
 }

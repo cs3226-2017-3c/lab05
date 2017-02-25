@@ -23,6 +23,13 @@ Achievement Detail
 				</ul>
 			</div>
 			@endif
+			
+			@foreach($students as $s)
+				@if($student->ac_i[0]!='x' && $student->ac_i[0]!='0')
+					$s->name
+				@endif
+			@endforeach
+			
 		</div>
 	</div>
 </div>
