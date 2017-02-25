@@ -7,7 +7,7 @@ Student History
 @endsection
 <div class="row">
 	<div class="hidden-xs hidden-sm hidden-md col-lg-12" >
-		<canvas id="historyChart" width="1000" height="400"></canvas>
+		<canvas id="historyChart" width="1000" height="500"></canvas>
     <div id="js-legend" class="chart-legend"></div>
 	</div>
 	<div class="hidden-lg col-md-12">
