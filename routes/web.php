@@ -46,3 +46,6 @@ Route::get('password/reset/{token?}', 'Http\Controllers\Auth\ResetPasswordContro
 Route::post('password/email', 'Http\Controllers\Auth\ResetPasswordController@sendResetLinkemail');
 Route::post('password/reset', 'Http\Controllers\Auth\ResetPasswordController@reset');
 
+Route::get('achievement', function() { return view('achievementDetail'); });
+Route::post('achievement', 'AchievementController@achievementHome');
+
