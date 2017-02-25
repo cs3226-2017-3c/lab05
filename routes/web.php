@@ -48,4 +48,5 @@ Route::post('password/reset', 'Http\Controllers\Auth\ResetPasswordController@res
 
 Route::get('achievement', function() { return view('achievementDetail'); });
 Route::post('achievement', 'AchievementController@achievementHome');
+Route::get('achievement/{component}/{id}', 'AchievementController@detail');
 
