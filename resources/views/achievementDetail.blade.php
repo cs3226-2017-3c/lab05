@@ -26,6 +26,56 @@ Achievement Detail
 			
 			<ol>
 			@foreach($students as $s)
+			@if($component_full=='Let it begins')
+				@if($s->ac_i[0]!='x' && $s->ac_i[0]!='0')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Quick starter')
+				@if($s->ac_i[1]!='x' && $s->ac_i[1]!='0')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Active in class' && $id=='1')
+				@if($s->ac_i[2]=='1')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Active in class' && $id=='2')
+				@if($s->ac_i[2]=='2')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Active in class' && $id=='3')
+				@if($s->ac_i[2]=='3')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Surprise us' && $id=='1')
+				@if($s->ac_i[3]=='1')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Surprise us' && $id=='2')
+				@if($s->ac_i[3]=='2')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Surprise us' && $id=='3')
+				@if($s->ac_i[3]=='3')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='High determination')
+				@if($s->ac_i[4]!='x' && $s->ac_i[4]!='0')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Bookworm')
+				@if($s->ac_i[5]!='x' && $s->ac_i[5]!='0')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
 			@if($component_full=='Kattis apprentice' && $id=='1')
 				@if($s->ac_i[6]=='1')
 					<li>{{$s->name}}</li>
