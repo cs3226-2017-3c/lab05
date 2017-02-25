@@ -39,7 +39,7 @@ class AchievementController extends Controller
 		$component_id['ka'] = $request->input('ka');
 		$component_id['cs'] = $request->input('cs');
 		
-		return redirect('achievementDetail/'.$component."/".$component_id[$component]);
+		return redirect('achievement/'.$component."/".$component_id[$component]);
 	}
 	
 	public function detail($component, $id){

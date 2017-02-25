@@ -88,7 +88,7 @@ Achievement
 			
 			<div class="edit-button" style="display:none;">
 			<div class="form-group"> 
-				{!! Form::submit('Check achivement', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
+				{!! Form::submit('Check achievement', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
 			</div>
 			</div>
 		</div>
