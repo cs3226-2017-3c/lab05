@@ -17,15 +17,8 @@ class AchievementController extends Controller
 	}	
 	public function achievementHome(Request $request){
 		Validator::make($request->all(), [
-			'achievement' => 'required|in:lib,qs,aic,su,hd,bw,ka,cs',
-			'lib' => 'in:1',
-			'qs' => 'in:1',
-			'aic' => 'in:1,2,3',
-			'su' => 'in:1,2,3',
-			'hd' => 'in:1',
-			'bw' => 'in:1',
-			'ka' => 'in:1,2,3,4,5,6',
-			'cs' => 'in:1',
+			'achievement' => 'required',
+			
 		])->validate();
 		
 		$component = $request->input('achievement');
@@ -49,6 +42,20 @@ class AchievementController extends Controller
 			$id > $componentIndexMax[$component] || $id<=0){
 			return view('errors/404');
 		}		
+		
+		$student = Student::find($id);
+		if(!$student){
+			return view('errors/404');
+		}
+		$students = Student::all();
+        $col = array('mc','tc','hw','bs','ks','ac');
+        foreach($students as $s){
+            $score = Score::find($s->latest_score_id);
+            foreach ($col as $c) {
+                $s->{$c.'_i'} = explode(",", $score->{$c});
+                $s->{$c} = array_sum($s->{$c.'_i'});
+            }
+        }
 		
 		switch ($component){
 			case 'lib':
@@ -79,7 +86,7 @@ class AchievementController extends Controller
 				break;
 		}
 
-		return view('achievementDetail',['component' => $component, 'component_full' => $component_full,'id' => $id]);
+		return view('achievementDetail',['component' => $component, 'component_full' => $component_full,'id' => $id,'student' => $student]);
 	}	
 	
 }

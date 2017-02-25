@@ -41,11 +41,6 @@ Route::get('student/{id}', 'DetailController@detail');
 Route::get('student/{id}/history', 'HistoryController@studentHistory');
 
 
-//Password Reset Routes
-Route::get('password/reset/{token?}', 'Http\Controllers\Auth\ResetPasswordController@showResetForm');
-Route::post('password/email', 'Http\Controllers\Auth\ResetPasswordController@sendResetLinkemail');
-Route::post('password/reset', 'Http\Controllers\Auth\ResetPasswordController@reset');
-
 Route::get('achievement', function() { return view('achievement'); });
 Route::post('achievement', 'AchievementController@achievementHome');
 Route::get('achievement/{component}/{id}', 'AchievementController@detail');
