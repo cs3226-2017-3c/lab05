@@ -25,11 +25,18 @@ Achievement Detail
 			@endif
 			
 			@foreach($students as $s)
-			@if($component_full=='CodeForces Specialist')
-				@if($s->ac_i[7]!='x' && $s->ac_i[7]!='0')
-					{{$s->name}}
+			<ol>
+			@if($component_full=='Kattis apprentice' && $id=='6')
+				@if($s->ac_i[6]=='6')
+					<li>{{$s->name}}</li>
 				@endif
 			@endif
+			@if($component_full=='CodeForces Specialist')
+				@if($s->ac_i[7]!='x' && $s->ac_i[7]!='0')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			</ol>
 			@endforeach
 			
 		</div>
