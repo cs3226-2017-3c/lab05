@@ -25,8 +25,8 @@ Achievement Detail
 			@endif
 			
 			@foreach($students as $s)
-				@if($s->ac_i[7]!='x' && $s->ac_i[7]!='0')
-				{{$s->name}}
+				@if($s->ac_i[7]!='x' && $s->ac_i[7]!='0' && $component_full==cs}})
+				<ol>{{$s->name}}</ol>
 				@endif
 			@endforeach
 			
