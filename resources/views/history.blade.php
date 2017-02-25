@@ -5,14 +5,16 @@ Student History
 @section('main')
 
 @endsection
+<div class="container">
 <div class="row">
 	<div class="hidden-xs hidden-sm hidden-md col-lg-12" >
-		<canvas id="historyChart" width="1000" height="500"></canvas>
+		<canvas id="historyChart" width="800" height="500"></canvas>
     <div id="js-legend" class="chart-legend"></div>
 	</div>
 	<div class="hidden-lg col-md-12">
 		<p>View in bigger screen for the history statistics=P</p>
 	</div>
+</div>
 </div>
 @section('footer')
 	<script type="text/javascript" src="../../js/date.js"></script>
@@ -21,7 +23,7 @@ Student History
 	<script>
     $(function(){
       var i, labels = [], week = "Week ";
-      for (i=0; i < 15; i++) {
+      for (i=0; i < 12; i++) {
       	var aLabel = week.concat(i);
       	labels.push(aLabel);
       }
