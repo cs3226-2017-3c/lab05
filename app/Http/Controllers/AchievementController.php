@@ -28,7 +28,7 @@ class AchievementController extends Controller
 			'cs' => 'in:1',
 		])->validate();
 		
-		$component = $request->input('component');
+		$component = $request->input('achievement');
 		
 		$component_id['lib'] = $request->input('lib');
 		$component_id['qs'] = $request->input('qs');
