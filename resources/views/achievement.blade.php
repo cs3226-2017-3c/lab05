@@ -75,7 +75,7 @@ Achievement
 			<div class="ka" style="display:none;">
 			<div class="form-group">
 				{!! Form::label('ka', 'Kattis apprentice:', ['class' => 'control-label']) !!}
-				{!! Form::select('ka', array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'),null, ['placeholder' => 'Select Kattis apprentice level', 'class' => 'form-control'] !!}
+				{!! Form::select('ka', array('1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'),null, ['placeholder' => 'Select Kattis apprentice level', 'class' => 'form-control'] )!!}
 			</div>
 			</div>
 			
