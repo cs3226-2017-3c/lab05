@@ -86,7 +86,7 @@ class AchievementController extends Controller
 				break;
 		}
 
-		return view('achievementDetail',['component' => $component, 'component_full' => $component_full,'id' => $id,'student' => $student]);
+		return view('achievementDetail',['component' => $component, 'component_full' => $component_full,'id' => $id,'students' => $students]);
 	}	
 	
 }
