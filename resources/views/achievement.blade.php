@@ -33,14 +33,14 @@ Achievement
 			<div class="lib" style="display:none;">
 			<div class="form-group">
 				{!! Form::label('lib', 'Let it begins:', ['class' => 'control-label']) !!}
-				{!! Form::select('lib', '1' => '1',null,['placeholder' => 'Select Let it begins level','class' => 'form-control'] ) !!}
+				{!! Form::select('lib', array('1' => '1'),null,['placeholder' => 'Select Let it begins level','class' => 'form-control'] ) !!}
 			</div>
 			</div>
 			
 			<div class="qs" style="display:none;">
 			<div class="form-group">
 				{!! Form::label('qs', 'Quick starter:', ['class' => 'control-label']) !!}
-				{!! Form::select('qs', '1' => '1',null,['placeholder' => 'Select Quick starter level','class' => 'form-control'] ) !!}
+				{!! Form::select('qs', array('1' => '1'),null,['placeholder' => 'Select Quick starter level','class' => 'form-control'] ) !!}
 			</div>
 			</div>
 			
@@ -61,14 +61,14 @@ Achievement
 			<div class="hd" style="display:none;">
 			<div class="form-group">
 				{!! Form::label('hd', 'High determination:', ['class' => 'control-label']) !!}
-				{!! Form::select('hd', '1' => '1',null,['placeholder' => 'Select High determination level','class' => 'form-control'] ) !!}
+				{!! Form::select('hd', array('1' => '1'),null,['placeholder' => 'Select High determination level','class' => 'form-control'] ) !!}
 			</div>
 			</div>
 			
 			<div class="bw" style="display:none;">
 			<div class="form-group">
 				{!! Form::label('bw', 'Bookworm:', ['class' => 'control-label']) !!}
-				{!! Form::select{'bw', '1' => '1',null,['placeholder' => 'Select Bookworm level','class' => 'form-control'] ) !!}
+				{!! Form::select{'bw', array('1' => '1'),null,['placeholder' => 'Select Bookworm level','class' => 'form-control'] ) !!}
 			</div>
 			</div>
 			
@@ -82,7 +82,7 @@ Achievement
 			<div class="cs" style="display:none;">
 			<div class="form-group">
 				{!! Form::label('cs', 'CodeForces Specialist:', ['class' => 'control-label']) !!}
-				{!! Form::select('cs', '1' => '1',null,['placeholder' => 'Select CodeForces Specialist level','class' => 'form-control'] ) !!}
+				{!! Form::select('cs', array('1' => '1'),null,['placeholder' => 'Select CodeForces Specialist level','class' => 'form-control'] ) !!}
 			</div>
 			</div>
 			
