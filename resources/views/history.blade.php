@@ -3,8 +3,6 @@
 Student History
 @endsection
 @section('main')
-
-@endsection
 <div class="container">
 <div class="row">
 	<div class="hidden-xs hidden-sm hidden-md col-lg-12" >
@@ -16,6 +14,7 @@ Student History
 	</div>
 </div>
 </div>
+@endsection
 @section('footer')
 	<script type="text/javascript" src="../../js/date.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
