@@ -26,7 +26,7 @@ Achievement Detail
 			
 			@foreach($students as $s)
 				@if($s->ac_i[0]!='x' && $s->ac_i[0]!='0')
-					$s->name
+				{{$s->name}}
 				@endif
 			@endforeach
 			
