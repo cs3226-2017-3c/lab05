@@ -26,7 +26,7 @@ Achievement Detail
 			
 			@foreach($students as $s)
 				@if($s->ac_i[7]!='x' && $s->ac_i[7]!='0' && $component_full=='cs')
-				<ol>{{$s->name}}</ol>
+					{{$s->name}}
 				@endif
 			@endforeach
 			
