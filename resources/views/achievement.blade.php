@@ -68,7 +68,7 @@ Achievement
 			<div class="bw" style="display:none;">
 			<div class="form-group">
 				{!! Form::label('bw', 'Bookworm:', ['class' => 'control-label']) !!}
-				{!! Form::select{'bw', array('1' => '1'),null,['placeholder' => 'Select Bookworm level','class' => 'form-control'] ) !!}
+				{!! Form::select('bw', array('1' => '1'),null,['placeholder' => 'Select Bookworm level','class' => 'form-control'] ) !!}
 			</div>
 			</div>
 			
