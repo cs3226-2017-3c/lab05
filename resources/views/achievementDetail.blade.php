@@ -24,8 +24,33 @@ Achievement Detail
 			</div>
 			@endif
 			
-			@foreach($students as $s)
 			<ol>
+			@foreach($students as $s)
+			@if($component_full=='Kattis apprentice' && $id=='1')
+				@if($s->ac_i[6]=='1')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Kattis apprentice' && $id=='2')
+				@if($s->ac_i[6]=='2')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Kattis apprentice' && $id=='3')
+				@if($s->ac_i[6]=='3')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Kattis apprentice' && $id=='4')
+				@if($s->ac_i[6]=='4')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
+			@if($component_full=='Kattis apprentice' && $id=='5')
+				@if($s->ac_i[6]=='5')
+					<li>{{$s->name}}</li>
+				@endif
+			@endif
 			@if($component_full=='Kattis apprentice' && $id=='6')
 				@if($s->ac_i[6]=='6')
 					<li>{{$s->name}}</li>
@@ -36,8 +61,8 @@ Achievement Detail
 					<li>{{$s->name}}</li>
 				@endif
 			@endif
-			</ol>
 			@endforeach
+			</ol>
 			
 		</div>
 	</div>
