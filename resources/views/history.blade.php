@@ -36,10 +36,15 @@ Student History
         var studentName = "{{$sc->student_name}}";
         if (currName != studentName) {
           if (data.length > 0) {
+            var realData = [];
+            var i = 0;
+            for (i = 0; i < 15; i=i+2) {
+              realData.push(data[i]);
+            }
             dataSet = {label: currName, fill: false, lineTension: 0, 
               backgroundColor: CSS_COLOR_NAMES[currStudent],
               borderColor: CSS_COLOR_NAMES[currStudent],
-              pointRadius: 0, data: data};
+              pointRadius: 0, data: realData};
             arrayDataSets.push(dataSet);
             data = [];
             currWeek = 0;
@@ -58,7 +63,7 @@ Student History
             var temp = data[currWeek-1];
             data.push(temp);
           }
-          currWeek = currWeek + 2;
+          currWeek = currWeek + 1;
         }
         if (data.length < currWeek) {
           data.push("{{$sc->sum}}");
