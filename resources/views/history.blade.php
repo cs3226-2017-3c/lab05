@@ -47,7 +47,7 @@
           if (data.length == 0) {
             data.push(0);
           } else {
-            var temp = data[currWeek-2];
+            var temp = data[currWeek/2-1];
             data.push(temp);
           }
           currWeek = currWeek + 2;
