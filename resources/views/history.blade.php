@@ -44,6 +44,7 @@ Student History
             dataSet = {label: currName, fill: false, lineTension: 0, 
               backgroundColor: CSS_COLOR_NAMES[currStudent],
               borderColor: CSS_COLOR_NAMES[currStudent],
+              hidden: true,
               pointRadius: 0, data: realData};
             arrayDataSets.push(dataSet);
             data = [];
@@ -115,6 +116,7 @@ Student History
       			dataSet = {label: currName, fill: false, lineTension: 0, 
               backgroundColor: CSS_COLOR_NAMES[currStudent],
               borderColor: CSS_COLOR_NAMES[currStudent],
+              hidden: true,
               pointRadius: 0, data: data};
       			arrayDataSets.push(dataSet);
       			data = [];
