@@ -45,3 +45,5 @@ Route::get('achievement', function() { return view('achievement'); });
 Route::post('achievement', 'AchievementController@achievementHome');
 Route::get('achievement/{component}/{id}', 'AchievementController@detail');
 
+Route::get('redirect', 'SocialAuthController@redirect');
+Route::get('github', 'SocialAuthController@callback');
