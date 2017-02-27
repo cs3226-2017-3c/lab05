@@ -41,11 +41,15 @@ Student History
             for (i = 0; i < 15; i=i+2) {
               realData.push(data[i]);
             }
+            console.log(studentName);
+            console.log(realData[realData.length - 1]);
             dataSet = {label: currName, fill: false, lineTension: 0, 
               backgroundColor: CSS_COLOR_NAMES[currStudent],
               borderColor: CSS_COLOR_NAMES[currStudent],
               hidden: true,
-              pointRadius: 0, data: realData};
+              pointRadius: 0,
+              data: realData
+            };
             arrayDataSets.push(dataSet);
             data = [];
             currWeek = 0;
@@ -97,8 +101,6 @@ Student History
       });
     });
 
-
-
     $(function(){
       var i, labels = [], week = "Week ";
       for (i=0; i < 15; i++) {
@@ -117,7 +119,8 @@ Student History
               backgroundColor: CSS_COLOR_NAMES[currStudent],
               borderColor: CSS_COLOR_NAMES[currStudent],
               hidden: true,
-              pointRadius: 0, data: data};
+              pointRadius: 0, data: data,
+              sum: data[data.length-1]};
       			arrayDataSets.push(dataSet);
       			data = [];
       			currWeek = 0;
@@ -144,6 +147,12 @@ Student History
       		data[data.length-1] = "{{$sc->sum}}";
       	}
       @endforeach
+
+      arrayDataSets.sort(function(a,b){ 
+        if(a.sum < b.sum) return 1;
+        else if(a.sum > b.sum) return -1;
+        else return 0;
+      });
 
       var historyData = {
         labels : labels,
