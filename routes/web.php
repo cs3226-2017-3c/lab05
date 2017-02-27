@@ -11,6 +11,7 @@
 |
 */
 Route::post('/getIndexHtml', 'StudentController@indexWithData');
+Route::post('/getHistoryHtml', 'HistoryController@historyWithChart');
 Route::get('/', 'StudentController@index');
 Route::get('help', function() { return view('help'); });
 
@@ -36,7 +37,7 @@ Route::get('bulkEdit/{component}/{id}', 'BulkEditController@edit');
 Route::post('bulkEdit/{component}/{id}', 'BulkEditController@store');
 
 
-Route::get('history', 'HistoryController@history');
+Route::get('history', 'HistoryController@emptyHistory');
 Route::get('student/{id}', 'DetailController@detail');
 Route::get('student/{id}/history', 'HistoryController@studentHistory');
 

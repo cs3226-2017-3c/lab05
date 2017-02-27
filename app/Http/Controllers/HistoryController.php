@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Score;
 use Validator;
+use View;
+
+error_reporting(-1); // reports all errors
+ini_set("display_errors", "1"); // shows all errors
+ini_set("log_errors", 1);
+ini_set("error_log", "/tmp/php-error.log");
 
 class HistoryController extends Controller {
     public function studentHistory($id) {
@@ -17,11 +23,16 @@ class HistoryController extends Controller {
         
     }
 
-    public function history() {
+    public function emptyHistory() {
+    
+        return view('history_empty');
+    }
+
+    public function historyWithChart() {
         $scores = Score::all();
         $scores = $this->constructScores($scores);
 
-        return view('history',['score' => $scores]);
+        return response()->json(array('htmlString'=> View::make('history', ['score' => $scores])->render(), 200));
     }
 
     private function constructScores($scores) {
