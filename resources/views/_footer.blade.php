@@ -6,7 +6,7 @@
       </div>
               {{-- Facebook like button --}}
 
-      <div class="fb-like" data-href="https://www.facebook.com/statensovanner/" data-width="200" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+      <div class="fb-like" data-href="https://www.facebook.com/RickAstley/" data-width="200" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 
 
       {{-- google analytics --}}
