@@ -22,10 +22,11 @@ class EditController extends Controller
 
   public function store(Request $request) {
     Validator::make($request->all(), [
-      'nickname' => 'required|min:3|max:30',
-      'fullname' => 'required|min:3|max:30',
-      'kattisacct' => 'required|min:3|max:30',
+      'nickname' => array('required','min:5','max:30','regex:/^[A-Za-z1-9,._ ]+$/'),
+      'fullname' => array('required','min:5','max:30','regex:/^[A-Za-z1-9,._ ]+$/'),
+      'kattisacct' => array('required','min:5','max:30','regex:/^[A-Za-z1-9,._ ]+$/'),
       'nationality' => 'required',
+      'comment' => array('max:500','regex:/^[A-Za-z1-9,._ ]+$/'),
       'avatar' => 'max:1024|image',
       ])->validate();
     $user_id = Auth::id();
