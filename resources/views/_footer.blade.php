@@ -3,11 +3,12 @@
   <div class="container">
     <p class="text-right">© 2017 M. Ashmawi, C. G. Lim, Z. Lin, K. Xiao, S. F. Zarrinkoub & H. Zhao. <a href="https://github.com/cs3226-2017-3c" target="_blank"><img width="12" alt="GitHub" src="/img/GitHub-Mark-32px.png"></a></p>
     
-      </div>
-              {{-- Facebook like button --}}
+    {{-- Facebook like button --}}
 
-      <div class="fb-like" data-href="https://www.facebook.com/RickAstley/" data-width="200" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    <div class="fb-like" data-href="https://www.facebook.com/RickAstley/" data-width="200" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 
+    
+  </div>
 
       {{-- google analytics --}}
       
