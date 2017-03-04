@@ -17,7 +17,15 @@ class AchievementController extends Controller
 	}	
 	public function achievementHome(Request $request){
 		Validator::make($request->all(), [
-			'achievement' => 'required',
+			'achievement' => 'required|in:lib,qs,aic,su,hd,bw,ka,cs',
+			'lib' => 'in:1',
+			'qs' => 'in:1',
+			'aic' => 'in:1,2,3',
+			'su' => 'in:1,2,3',
+			'hd' => 'in:1',
+			'bw' => 'in:1',
+			'ka' => 'in:1,2,3,4,5,6',
+			'cs' => 'in:1',
 			
 		])->validate();
 		
