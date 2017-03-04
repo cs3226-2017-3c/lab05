@@ -29,16 +29,16 @@ BulkEdit
 
        
         @foreach($students as $s)
-		<div class="form-group">
+		<div class="form-group col-md-6 col-md-6 col-sm-6 col-xs-12">
 			{!! Form::label('name', $s->id.'. '.$s->name, ['class' => 'control-label']) !!}
 			{!! Form::text($component.'['.$s->id.']', $s->data, ['class' => 'form-control']) !!}
 		</div>
         @endforeach
   
-		<div class="form-group">
+		<div class="form-group col-md-12">
           {!! app('captcha')->display(); !!}
         </div>
-		<div class="form-group"> 
+		<div class="form-group col-md-12"> 
 			{!! Form::submit('Update', ['class' => 'btn btn-primary btn-lg btn-block']) !!}
 		</div>
         
