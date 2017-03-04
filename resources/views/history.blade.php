@@ -3,8 +3,9 @@
 Student History
 @endsection
 @section('main')
+<div class="loader" style="margin:0 auto;"></div>
 <div class="container">
-<div class="row">
+<div class="row historyChart" style="display:none;">
 	<div class="hidden-xs hidden-sm hidden-md col-lg-12">
 		<p>The legend is sorted in <b>descending</b> order according to latest sum.</p>
 		<canvas id="historyChart-lg" width="800" height="500"></canvas>

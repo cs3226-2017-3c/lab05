@@ -31,6 +31,8 @@ function drawChart(chartId, callback, anotherId){
     labels.push(aLabel);
   }
   $.getJSON(url, function(dataSets){
+    $('.loader').css('display','none');
+    $('.historyChart').css('display','block');
     ajaxReceived = true;
     cacheDataSets = dataSets;
     var historyData = {
