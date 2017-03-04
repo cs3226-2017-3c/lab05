@@ -27,7 +27,7 @@ class HistoryController extends Controller {
         $student = Student::find($id);
         $scores = Score::where('student_id', $id)->orderBy('effective_from', 'asc')->get();
         $scores = $this->constructScores($scores);
-        $dataSets = $this->constructDataSets($scores);
+        $dataSets = $this->constructDataSets($scores, false);
         
         return response()->json($dataSets);
     }
@@ -39,7 +39,7 @@ class HistoryController extends Controller {
     public function historyDataSet() {
         $scores = Score::all();
         $scores = $this->constructScores($scores);
-        $dataSets = $this->constructDataSets($scores);
+        $dataSets = $this->constructDataSets($scores, true);
         usort($dataSets, array($this, "compare"));
         for ($i = 0; $i < 10; $i++) {
             $dataSets[$i]->hidden = false;
@@ -48,7 +48,7 @@ class HistoryController extends Controller {
         return response()->json($dataSets);
     }
 
-    private function constructDataSets($scores) {
+    private function constructDataSets($scores, $isChartHidden) {
         $dummyObject = new Score;
         $dummyObject->student_id = -1;
         $dummyObject->score_id = -1;
@@ -72,8 +72,8 @@ class HistoryController extends Controller {
                     $dataSet->lineTension=0;
                     $dataSet->backgroundColor=$this->CSS_COLOR_NAMES[$studentCount];
                     $dataSet->borderColor=$this->CSS_COLOR_NAMES[$studentCount];
-                    $dataSet->hidden=true;
-                    $dataSet->data = $data;
+                    $dataSet->hidden=$isChartHidden;
+                    $dataSet->data=$data;
                     array_push($dataSetArray, $dataSet);
                     unset($tempData);
                     $tempData = array();
