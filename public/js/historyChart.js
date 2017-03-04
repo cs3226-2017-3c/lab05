@@ -9,8 +9,6 @@ function drawChart(chartId){
     labels.push(aLabel);
   }
   $.getJSON(url, function(dataSets){
-    ajaxReceived = true;
-    cacheDataSets = dataSets;
     var historyData = {
       labels : labels,
       datasets : dataSets
@@ -89,12 +87,11 @@ function clone(dataSets) {
     for (var property in dataSets[i]) {
       if (dataSets[i].hasOwnProperty(property)) {
         aDataSet[property] = dataSets[i][property];
-        console.log(aDataSet[property]);
       }
     }
     aDataSets.push(aDataSet);
   }
-  return aDataSet;
+  return aDataSets;
 }
 
 function initializeDataSet() {
