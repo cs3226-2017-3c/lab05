@@ -77,39 +77,7 @@
 
 @section('footer')
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script type="text/javascript" src="../../js/historyChart.js"></script>
   <!-- draw history chart -->
-  <script>
-    $(function(){
-      var labels = [],data=[];
-      @foreach($score as $sc)
-        var date = selectDate("{{$sc->effective_from}}");
-        labels.push(date);
-        data.push("{{$sc->sum}}");
-      @endforeach
-
-      var historyData = {
-        labels : labels,
-        datasets : [{
-          label: "sum",
-          fill: false,
-          lineTension: 0.1,
-          strokeColor : "#f56954",
-          pointColor : "#A62121",
-          pointStrokeColor : "#741F1F",
-          data : data
-        }]
-      };
-      var history = $("#historyChart");
-    
-      var chartInstance = new Chart(history, {
-        type: 'line',
-        data: historyData,
-      });
-    });
-
-    function selectDate(date) {
-      var split = date.split(" ");
-      return split[0];
-    }
-  </script>
+  <script>drawChart("#historyChart");</script>
 @endsection

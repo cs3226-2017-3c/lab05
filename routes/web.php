@@ -37,8 +37,10 @@ Route::post('bulkEdit/{component}/{id}', 'BulkEditController@store');
 
 
 Route::get('history', 'HistoryController@history');
+Route::get('historyDataSet', 'HistoryController@historyDataSet');
 Route::get('student/{id}', 'DetailController@detail');
 Route::get('student/{id}/history', 'HistoryController@studentHistory');
+Route::get('student/{id}/historyDataSet', 'HistoryController@studentHistoryDataSet');
 
 
 Route::get('achievement', function() { return view('achievement'); });
