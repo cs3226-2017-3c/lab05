@@ -2,9 +2,6 @@
 @section('title')
 Home
 @endsection
-@section('header')
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-@endsection
 @section('main')
   <div class="loader" style="margin:0 auto;"></div>
   <div id="tableLoaded"></div>
