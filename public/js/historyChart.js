@@ -33,8 +33,7 @@ function drawChart(chartId, callback, anotherId){
   $.getJSON(url, function(dataSets){
     $('.loader').css('display','none');
     $('.historyChart').css('display','block');
-    ajaxReceived = true;
-    cacheDataSets = dataSets;
+    cacheDataSets = clone(dataSets);
     var historyData = {
       labels : labels,
       datasets : dataSets
@@ -81,5 +80,33 @@ function eliminateOddWeek(dataSets) {
     dataSetsCopy[i].data = tempData; 
   }
   return dataSetsCopy;
+}
+
+function clone(dataSets) {
+  var aDataSets=[];
+  for (var i=0; i<dataSets.length; i++) {
+    var aDataSet = initializeDataSet();
+    for (var property in dataSets[i]) {
+      if (dataSets[i].hasOwnProperty(property)) {
+        aDataSet[property] = dataSets[i][property];
+        console.log(aDataSet[property]);
+      }
+    }
+    aDataSets.push(aDataSet);
+  }
+  return aDataSet;
+}
+
+function initializeDataSet() {
+  var aDataSet = {
+    label:"",
+    fill:false,
+    lineTension:0,
+    backgroundColor:"",
+    borderColor:"",
+    hidden:false,
+    data:[]
+  }
+  return aDataSet;
 }
 
