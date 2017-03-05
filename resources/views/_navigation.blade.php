@@ -8,8 +8,7 @@
   				<span class="icon-bar"></span>
   				<span class="icon-bar"></span>
   			</button>
-  			<!--<a class="navbar-brand" href="/">CS3233 Ranklist 2020</a>-->
-			<a class="navbar-brand" href="/">{{ __('lang.msg') }}</a>
+  			<a class="navbar-brand" href="/">CS3233 Ranklist 2020</a>
 			
   		</div>
   		<div id="navbar" class="navbar-collapse collapse">
@@ -18,6 +17,20 @@
   				<li id="history" @if(Request::path()=="history")class="active"@endif}}><a href="/history">History</a></li>
 				<li id="achievement" @if(Request::path()=="achievement")class="active"@endif}}><a href="/achievement">Achievement</a></li>
           <li id="help" @if(Request::is('help'))class="active"@endif}}><a href="/help">Help</a></li>
+		  <li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				{{ Config::get('languages')[App::getLocale()] }}
+			</a>
+			<ul class="dropdown-menu">
+				@foreach (Config::get('languages') as $lang => $language)
+					@if ($lang != App::getLocale())
+						<li>
+							<a href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
+						</li>
+					@endif
+				@endforeach
+			</ul>
+		  </li>
           @if(Request::is('student/create'))
           @if (Auth::guest()) @else <li class="active"><a href="/student/create">Create Mode</a></li> @endif
           @elseif(Request::is('student/*/*'))
