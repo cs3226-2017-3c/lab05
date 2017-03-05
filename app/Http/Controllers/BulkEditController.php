@@ -43,7 +43,7 @@ class BulkEditController extends Controller
 
         if (!is_numeric($id) || !in_array($component, ['mc','tc','hw','bs','ks']) || 
             $id > $componentIndexMax[$component] || $id<=0){
-            return view('errors/404');
+            return response()->view('errors/404',[],404);
         }
 
         $students = Student::all();

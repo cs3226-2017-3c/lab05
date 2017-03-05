@@ -16,7 +16,13 @@ class HistoryController extends Controller {
     }
 
     public function studentHistory($id) {
+        if (!is_numeric($id)){
+            return response()->view('errors/404',[],404);
+        }
         $student = Student::find($id);
+        if (!$student){
+            return response()->view('errors/404',[],404);
+        }
         $scores = Score::where('student_id', $id)->orderBy('effective_from', 'asc')->get();
         $scores = $this->constructScores($scores);
 

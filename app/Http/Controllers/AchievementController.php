@@ -48,12 +48,12 @@ class AchievementController extends Controller
 		
 		if(!is_numeric($id) || !in_array($component, ['lib','qs','aic','su','hd','bw','ka','cs']) || 
 			$id > $componentIndexMax[$component] || $id<=0){
-			return view('errors/404');
+			return response()->view('errors/404',[],404);
 		}		
 		
 		$student = Student::find($id);
 		if(!$student){
-			return view('errors/404');
+			return response()->view('errors/404',[],404);
 		}
 		$students = Student::all();
         $col = array('mc','tc','hw','bs','ks','ac');

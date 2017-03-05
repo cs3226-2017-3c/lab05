@@ -16,7 +16,13 @@ class EditController extends Controller
   }
 
   public function upload($id) {
+    if (!is_numeric($id)){
+        return response()->view('errors/404',[],404);
+    }
     $student = Student::find($id);
+    if (!$student){
+        return response()->view('errors/404',[],404);
+    }
     return view('edit',['student' => $student]);
   } 
 

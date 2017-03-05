@@ -17,7 +17,13 @@ class EditScoreController extends Controller
     $this->middleware('auth');
   }
   public function edit($id) {
+    if (!is_numeric($id)){
+        return response()->view('errors/404',[],404);
+    }
     $student = Student::find($id);
+    if (!$student){
+        return response()->view('errors/404',[],404);
+    }
     $score = Score::find($student->latest_score_id);
     $col = array('mc','tc','hw','bs','ks','ac');
     foreach ($col as $c) {
