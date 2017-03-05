@@ -56,7 +56,7 @@ class MessageController extends Controller {
 
   public function send(Request $request) {
     Validator::make($request->all(), [ // as simple as this
-      'text' => array('required'),
+      'text' => array('required','max:500','regex:/^[A-Za-z1-9,.!@$%?:;_ ]+$/'),
       ])->validate();
     $user_id = Auth::user()->id;
 
