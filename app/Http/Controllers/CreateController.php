@@ -17,6 +17,11 @@ class CreateController extends Controller {
     $this->middleware('admin');
   }
 
+  public function create() {
+    return view('create');
+  } 
+
+
   public function check(Request $request) {
     Validator::make($request->all(), [ // as simple as this
       'nickname' => array('required','min:5','max:30','regex:/^[A-Za-z1-9,._ ]+$/'),

@@ -18,6 +18,10 @@ class BulkEditController extends Controller
         $this->middleware('auth');
         $this->middleware('admin');
     }
+
+    public function home() {
+        return view('bulkEditHome');
+    } 
     public function editHome(Request $request) {
         Validator::make($request->all(), [ // as simple as this
             'component' => 'required|in:tc,mc,bs,hw,ks',

@@ -18,7 +18,7 @@ Route::get('help', function() { return view('help'); });
 
 Auth::routes();
 
-Route::get('student/create', function() { return view('create'); })->middleware('auth');;
+Route::get('student/create', 'CreateController@create' );
 Route::post('student/create', 'CreateController@check');
 Route::get('student/{id}/edit', 'EditController@upload');
 Route::post('student/edit', 'EditController@store');
@@ -30,7 +30,7 @@ Route::get('student/{id}/score', 'EditScoreController@edit');
 Route::post('student/score', 'EditScoreController@store');
 Route::post('student/{id}/history/delete', 'DeleteScoreController@store');
 
-Route::get('bulkEdit', function() { return view('bulkEditHome'); });
+Route::get('bulkEdit', 'BulkEditController@home');
 Route::post('bulkEdit', 'BulkEditController@editHome');
 Route::get('bulkEdit/{component}/{id}', 'BulkEditController@edit');
 Route::post('bulkEdit/{component}/{id}', 'BulkEditController@store');
