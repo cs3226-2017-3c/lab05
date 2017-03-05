@@ -10,11 +10,11 @@ use Validator;
 class DetailController extends Controller {
     public function detail($id) {
         if (!is_numeric($id)){
-            return view('errors/404');
+            return response()->view('errors/404',[],404);
         }
         $student = Student::find($id);
         if (!$student){
-            return view('errors/404');
+            return response()->view('errors/404',[],404);
         }
         $score = Score::find($student->latest_score_id);
         $modifiedDate = $score->effective_from;
