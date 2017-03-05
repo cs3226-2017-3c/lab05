@@ -13,7 +13,8 @@
   		</div>
   		<div id="navbar" class="navbar-collapse collapse">
   			<ul class="nav navbar-nav">
-  				<li id="home" @if(Request::path()=="/")class="active"@endif}}><a href="/">Home</a></li>
+  				<!--<li id="home" @if(Request::path()=="/")class="active"@endif}}><a href="/">Home</a></li>-->
+				<li id="home" @if(Request::path()=="/")class="active"@endif}}><a href="/">{{ trans('lang.msg') }}</a></li>
   				<li id="history" @if(Request::path()=="history")class="active"@endif}}><a href="/history">History</a></li>
 				<li id="achievement" @if(Request::path()=="achievement")class="active"@endif}}><a href="/achievement">Achievement</a></li>
           <li id="help" @if(Request::is('help'))class="active"@endif}}><a href="/help">Help</a></li>
