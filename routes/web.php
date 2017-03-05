@@ -51,5 +51,5 @@ Route::get('achievement/{component}/{id}', 'AchievementController@detail');
 Route::get('redirect', 'SocialAuthController@redirect');
 Route::get('github', 'SocialAuthController@callback');
 Route::group(['prefix' => '{lang?}', 'before' => 'localization'], function(){
-Route::get('/', function(){return View::make('messages'); });
+Route::get('/', function(){return View::make('localization'); });
 });
