@@ -39,6 +39,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        //return view('auth.register');
+         abort(404);  //this will throw a page not found exception
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
