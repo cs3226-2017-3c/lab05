@@ -50,6 +50,7 @@ Route::get('achievement/{component}/{id}', 'AchievementController@detail');
 Route::get('redirect', 'SocialAuthController@redirect');
 Route::get('github', 'SocialAuthController@callback');
 
-/*Route::get('/{locale}','LocalizationController@index');*/
 
-Route::get('lang/{lang}', ['as'=>'lang.switch', 'uses'=>'LanguageController@switchLang']);
+Route::get('/changeLanguage/{locale}', array( 
+	'Middleware' => 'Language',
+	'uses' => 'LanguageController@switchLang'));
