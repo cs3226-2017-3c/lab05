@@ -16,6 +16,7 @@ class BulkEditController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('admin');
     }
     public function editHome(Request $request) {
         Validator::make($request->all(), [ // as simple as this

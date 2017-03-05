@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Score;
@@ -15,6 +14,7 @@ class EditScoreController extends Controller
   public function __construct()
   {
     $this->middleware('auth');
+    $this->middleware('admin');
   }
   public function edit($id) {
     if (!is_numeric($id)){
