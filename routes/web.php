@@ -18,8 +18,6 @@ Route::get('help', function() { return view('help'); });
 
 Auth::routes();
 
-Route::get(trans('routes.home'), ['as' => 'home', 'uses' => 'HomeController@index']);
-/*Route::get('/home', 'HomeController@index');*/
 Route::get('student/create', function() { return view('create'); })->middleware('auth');;
 Route::post('student/create', 'CreateController@check');
 Route::get('student/{id}/edit', 'EditController@upload');
