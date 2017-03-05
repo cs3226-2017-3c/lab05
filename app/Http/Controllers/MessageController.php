@@ -17,7 +17,7 @@ class MessageController extends Controller {
   }
 
   public function retrieve() {
-    $user_id = Auth::id();
+    $user_id = Auth::user()->id;
     $inbox = Message::where('receiver', $user_id)->get();
     foreach($inbox as $i){
       $sender = $i->sender;
@@ -40,6 +40,15 @@ class MessageController extends Controller {
     $everything = null;
     if (Auth::check() and Auth::user()->access == 1 ){
       $everything = Message::all();
+
+      foreach($everything as $i){
+        $sender = $i->sender;
+        $receiver = $i->receiver;
+        $sender = User::find($sender)->name . ' (ID: ' . $sender . ')';
+        $receiver = User::find($receiver)->name . ' (ID: ' . $receiver. ')';
+        $i->sender = $sender;
+        $i->receiver = $receiver;
+      }
     }
     return view('message',['inbox' => $inbox, 'outbox' => $outbox, 'everything' => $everything]);
   } 
@@ -49,7 +58,7 @@ class MessageController extends Controller {
     Validator::make($request->all(), [ // as simple as this
       'text' => array('required'),
       ])->validate();
-    $user_id = Auth::id();
+    $user_id = Auth::user()->id;
 
     $new_message = new Message;
 
