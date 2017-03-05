@@ -17,11 +17,13 @@ Message Box
       @endif
       <h3><strong>Inbox</strong></h3>
       @foreach($inbox as $m)
-      <div class="card">
-        <div class="card-block">
-          <h4 class="card-title">From {{$m->sender}}</h4>
-          <h6 class="card-subtitle mb-2 text-muted">{{$m->created_at}}</h6>
-          <p class="card-text">{{$m->text}}</p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          From {{$m->sender}}
+        </div>
+        <div class="panel-body">
+          <h6>{{$m->created_at}}</h6>
+          <p>{{$m->text}}</p>
         </div>
       </div>
       @endforeach
@@ -31,11 +33,13 @@ Message Box
     <div class="col-md-12" >
       <h3><strong>Outbox</strong></h3>
       @foreach($outbox as $m)
-      <div class="card">
-        <div class="card-block">
-          <h4 class="card-title">To {{$m->receiver}}</h4>
-          <h6 class="card-subtitle mb-2 text-muted">{{$m->created_at}}</h6>
-          <p class="card-text">{{$m->text}}</p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          To {{$m->receiver}}
+        </div>
+        <div class="panel-body">
+          <h6>{{$m->created_at}}</h6>
+          <p>{{$m->text}}</p>
         </div>
       </div>
       @endforeach
@@ -45,10 +49,12 @@ Message Box
     <div class="col-md-12" >
       <h3><strong>New Message</strong></h3>
       {!! Form::open(['files' => 'true']) !!}
+      @if (Auth::check() and Auth::user()->access == 1)
       <div class="form-group"> {{-- Group related form components together --}}
         {!! Form::label('receiver', 'To:', ['class' => 'control-label']) !!}
         {!! Form::text('receiver', null, ['class' => 'form-control']) !!}
       </div>
+      @endif
       <div class="form-group">
         {!! Form::textarea('text', null, ['class' => 'form-control']) !!}
       </div>

@@ -42,7 +42,6 @@ class MessageController extends Controller {
 
   public function send(Request $request) {
     Validator::make($request->all(), [ // as simple as this
-      'receiver' => array('required'),
       'text' => array('required'),
       ])->validate();
     $user_id = Auth::id();
@@ -50,8 +49,11 @@ class MessageController extends Controller {
     $new_message = new Message;
 
     $new_message->sender = $user_id;
-
-    $new_message->receiver = $request->input('receiver');
+    if (Auth::user()->access == 1){
+      $new_message->receiver = $request->input('receiver');
+    } else {
+      $new_message->receiver = 1;
+    }
     $new_message->text = $request->input('text');
     $new_message->save();
 
