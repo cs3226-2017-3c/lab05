@@ -268,7 +268,7 @@ $countries = array
             </ul>
         </div>
       @endif
-        <h2>Edit Student Info for <strong>{{ $student->name }}</strong></h2>
+        <h2>{{trans('index.edit')}} <strong>{{ $student->name }}</strong></h2>
         {!! Form::open(['action' => 'EditController@store', 'files' => 'true']) !!}
         <div class="form-group"> {{-- Group related form components together --}}
           {!! Form::label('nickname', 'Nick name:', ['class' => 'control-label']) !!}

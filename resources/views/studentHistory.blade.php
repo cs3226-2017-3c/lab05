@@ -6,7 +6,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12" >
-      <h2>Score History for <strong>{{ $student->name }}</strong></h2>
+      <h2>{{trans('index.history')}} <strong>{{ $student->name }}</strong></h2>
       <canvas class = "hidden-xs" id="historyChart" width="1000" height="400"></canvas>
       <table class="table table-striped">
         <thead>

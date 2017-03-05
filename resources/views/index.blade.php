@@ -98,7 +98,7 @@
 
 <div class="container">
 	<div class="row">
-		<h5>The Ranklist is last updated at {{$update}}</h5>
+		<h5>{{trans('index.indexUpdateMessage')}} {{$update}}</h5>
 	</div>
 	<div class="row">
 		<div class="col-xs-12">

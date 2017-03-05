@@ -7,10 +7,10 @@
   <div class="row">
     <div class="col-md-8 col-xs-12" >
       <h3><strong>{{ $student->name }}</strong> in CS3233 S1 AY 2020/21</h3>
-      <p>Kattis account: <a href="#">{{$student->kattis}}</a> <img src="../img/kattis.png" alt="Kattis" width="20" height="15"></p>
-      <h5>The score is last updated at {{$update}}</h5>
-      <p><strong>SPE</strong>(ed) component: <strong>{{ $student->mc }} + {{ $student->tc }} = {{ $student->mc+$student->tc }}</strong><br>
-        <strong>DIL</strong>(igence) component: <strong>{{ $student->hw }} + {{ $student->bs }} + {{ $student->ks }} + {{ $student->ac }} = {{ $student->hw+$student->bs+$student->ks+$student->ac }}</strong><br>
+      <p>{{trans('index.kattisAccount')}}: <a href="#">{{$student->kattis}}</a> <img src="../img/kattis.png" alt="Kattis" width="20" height="15"></p>
+      <h5>{{trans('index.detailUpdateMessage')}} {{$update}}</h5>
+      <p><strong>SPE</strong>(ed) {{trans('index.component')}}: <strong>{{ $student->mc }} + {{ $student->tc }} = {{ $student->mc+$student->tc }}</strong><br>
+        <strong>DIL</strong>(igence) {{trans('index.component')}}: <strong>{{ $student->hw }} + {{ $student->bs }} + {{ $student->ks }} + {{ $student->ac }} = {{ $student->hw+$student->bs+$student->ks+$student->ac }}</strong><br>
         <strong>Sum = SPE + DIL = {{ $student->mc+$student->tc }} + {{ $student->hw+$student->bs+$student->ks+$student->ac }} = {{ $student->mc+$student->tc+$student->hw+$student->bs+$student->ks+$student->ac }}</strong></p>
     </div>
     <div class="col-md-4 hidden-xs hidden-sm">
@@ -20,7 +20,7 @@
   </div>
   <div class="row">
     <div class="col-md-8 col-xs-12" >
-      <p>Detailed scores:</p>
+      <p>{{trans('index.detailScore')}}:</p>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -103,7 +103,7 @@
           </tr>
         </tbody>
       </table>
-      <p>Achievement details:</p>
+      <p>{{trans('index.achievementDetail')}}:</p>
       <ol>
         @if($student->ac_i[0]!='x' && $student->ac_i[0]!='0') <li>Let it begins</li>@endif 
         @if($student->ac_i[1]!='x' && $student->ac_i[1]!='0') <li>Quick starter</li>@endif 
@@ -114,7 +114,7 @@
         @if($student->ac_i[6]!='x' && $student->ac_i[6]!='0') <li>Kattis apprentice {{$student->ac_i[6]}}/6</li>@endif 
         @if($student->ac_i[7]!='x' && $student->ac_i[7]!='0') <li>CodeForces Specialist</li>@endif 
       </ol>
-      <p>Specific (public) comments about this student: <strong>{{$student->comment}}</strong></p>
+      <p>{{trans('index.comment')}}: <strong>{{$student->comment}}</strong></p>
     </div>
     <div class="col-md-4 hidden-xs hidden-sm">
       <canvas id="myChart" width="350" height="350"></canvas>

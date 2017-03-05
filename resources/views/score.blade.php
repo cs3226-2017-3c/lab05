@@ -15,7 +15,7 @@
             </ul>
         </div>
       @endif
-		<h2>Edit Score for <strong>{{ $student->name }}</strong></h2>
+		<h2>{{trans('index.score')}} <strong>{{ $student->name }}</strong></h2>
 		{!! Form::open(['action' => 'EditScoreController@store']) !!} {{-- Blade shortcut for creating HTML5 form --}}
 		<div class="form-group">
 			{!! Form::label('mc', 'Mini contest scores:', ['class' => 'control-label']) !!}

@@ -17,21 +17,7 @@
   				<li id="history" @if(Request::path()=="history")class="active"@endif}}><a href="/history">{{trans('navigation.history')}}</a></li>
 				<li id="achievement" @if(Request::path()=="achievement")class="active"@endif}}><a href="/achievement">{{trans('navigation.achievement')}}</a></li>
           <li id="help" @if(Request::is('help'))class="active"@endif}}><a href="/help">{{trans('navigation.help')}}</a></li>
-		  <li class="dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				{{ Config::get('languages')[App::getLocale()] }}
-			</a>
-			<ul class="dropdown-menu">
-				@foreach (Config::get('languages') as $lang => $language)
-					@if ($lang != App::getLocale())
-						<li>
-							<a href="changeLanguage/{{$lang}}">{{$language}}</a>
-						</li>
-					@endif
-				@endforeach
-			</ul>
-
-
+		  
 		  </li>
           @if(Request::is('student/create'))
           <li class="active"><a href="/student/create">{{trans('navigation.createMode')}}</a></li>
@@ -86,9 +72,10 @@
   			</ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- Authentication Links -->
+
           @if (Auth::guest())
           <li @if(Request::is('login')) class="active" @endif ><a href="{{ route('login') }}">{{trans('navigation.login')}}</a></li>
-          <li @if(Request::is('register')) class="active" @endif ><a href="{{ route('register') }}">Register</a></li>
+          <li @if(Request::is('register')) class="active" @endif ><a href="{{ route('register') }}">{{trans('navigation.register')}}</a></li>
           @else
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -98,14 +85,14 @@
             <ul class="dropdown-menu" role="menu">
              <li>
                 <a href="/message">
-                Message
+                {{trans('navigation.message')}}
               </a>
             </li>
               <li>
                 <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                Logout
+                {{trans('navigation.logout')}}
               </a>
 
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -115,7 +102,22 @@
           </ul>
         </li>
         @endif
-      </ul>
+        @if(Request::is('/'))
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            {{ Config::get('languages')[App::getLocale()] }}
+          </a>
+          <ul class="dropdown-menu">
+            @foreach (Config::get('languages') as $lang => $language)
+              @if ($lang != App::getLocale())
+                <li>
+                  <a href="changeLanguage/{{$lang}}">{{$language}}</a>
+                </li>
+              @endif
+            @endforeach
+          </ul>
+          @endif
+        </ul>
   		</div><!--/.nav-collapse -->
   	</div><!--/.container-fluid -->
   </nav>

@@ -9,7 +9,7 @@ Achievement Detail
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Students with {{$component_full}} {{$id}} achievement</h2>
+			<h2>{{trans('achievement.studentwith')}} {{$component_full}} {{$id}} {{trans('achievement.achievement')}}</h2>
 		</div>
 	</div>
 	<div class="row">

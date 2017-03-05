@@ -268,7 +268,7 @@ $countries = array
 					</ul>
 				</div>
 			@endif
-			<h2>Create Student</h2>
+			<h2>{{trans('index.create')}}</h2>
 			{!! Form::open(['files' => 'true']) !!} {{-- Blade shortcut for creating HTML5 form --}}
 			<div class="form-group"> {{-- Group related form components together --}}
 				{!! Form::label('nickname', 'Nick name:', ['class' => 'control-label']) !!}

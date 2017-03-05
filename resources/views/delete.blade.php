@@ -15,7 +15,7 @@
             </ul>
         </div>
       @endif
-        <h2>Delete <strong>{{ $student->name }}</strong>?</h2>
+        <h2>{{trans('index.delete')}} <strong>{{ $student->name }}</strong>?</h2>
         {!! Form::open(['action' => 'DeleteController@store']) !!}
         <div class="form-group">
           {!! app('captcha')->display(); !!}
