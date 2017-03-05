@@ -53,3 +53,5 @@ Route::get('github', 'SocialAuthController@callback');
 Route::group(['prefix' => '{lang?}', 'before' => 'localization'], function(){
 Route::get('/', function(){return View::make('localization'); });
 });
+
+Route::get('localization/{locale}','LocalizationController@index');
