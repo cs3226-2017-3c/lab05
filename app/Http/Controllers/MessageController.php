@@ -36,7 +36,12 @@ class MessageController extends Controller {
       $i->sender = $sender;
       $i->receiver = $receiver;
     }
-    return view('message',['inbox' => $inbox, 'outbox' => $outbox]);
+
+    $everything = null;
+    if (Auth::check() and Auth::user()->access == 1 ){
+      $everything = Message::all();
+    }
+    return view('message',['inbox' => $inbox, 'outbox' => $outbox, 'everything' => $everything]);
   } 
 
 

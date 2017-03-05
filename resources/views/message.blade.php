@@ -16,14 +16,14 @@ Message Box
         </div>
       @endif
       <h3><strong>Inbox</strong></h3>
-      @foreach($inbox as $m)
+      @foreach($inbox as $c)
       <div class="panel panel-default">
         <div class="panel-heading">
-          From {{$m->sender}}
+          From {{$c->sender}}
         </div>
         <div class="panel-body">
-          <h6>{{$m->created_at}}</h6>
-          <p>{{$m->text}}</p>
+          <h6>{{$c->created_at}}</h6>
+          <p>{{$c->text}}</p>
         </div>
       </div>
       @endforeach
@@ -45,6 +45,24 @@ Message Box
       @endforeach
     </div>
   </div>
+  @if (Auth::check() and Auth::user()->access == 1 )
+  <div class="row">
+    <div class="col-md-12" >
+      <h3><strong>All mails</strong></h3>
+      @foreach($everything as $e)
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          From {{$e->sender}} To {{$e->receiver}}
+        </div>
+        <div class="panel-body">
+          <h6>{{$e->created_at}}</h6>
+          <p>{{$e->text}}</p>
+        </div>
+      </div>
+      @endforeach
+    </div>
+  </div>
+  @endif
   <div class="row">
     <div class="col-md-12" >
       <h3><strong>New Message</strong></h3>
