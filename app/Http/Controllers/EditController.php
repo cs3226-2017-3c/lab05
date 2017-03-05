@@ -13,6 +13,7 @@ class EditController extends Controller
   public function __construct()
   {
     $this->middleware('auth');
+
   }
 
   public function upload($id) {
@@ -22,6 +23,9 @@ class EditController extends Controller
     $student = Student::find($id);
     if (!$student){
         return response()->view('errors/404',[],404);
+    }
+    if ($id != Auth::user()->student_id){
+      return redirect('/');
     }
     return view('edit',['student' => $student]);
   } 

@@ -22,7 +22,7 @@
             <th>DIL</th>
             <th>Sum</th>
             <th>Effective Date</th>
-            @if (Auth::guest()) @else 
+            @if (Auth::check() and Auth::user()->access == 1) 
             <th>Action</th>
             @endif
           </tr>
@@ -41,7 +41,7 @@
             <td>{{$sc->dil}}</td>
             <td>{{$sc->sum}}</td>
             <td>{{$sc->effective_from}}</td>
-            @if (Auth::guest()) @else 
+            @if (Auth::check() and Auth::user()->access == 1) 
             <td><button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#edit">Edit</button> <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" onclick="event.preventDefault();$('#delete-form input[name=\'id\']').val({{$sc->id}}); $('.modal-body strong').text({{$sc->id}});">Delete</button></td>
             @endif
         @endforeach

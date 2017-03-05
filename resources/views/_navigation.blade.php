@@ -30,19 +30,22 @@
 					@endif
 				@endforeach
 			</ul>
+
+
 		  </li>
           @if(Request::is('student/create'))
-          @if (Auth::guest()) @else <li class="active"><a href="/student/create">Create Mode</a></li> @endif
+          <li class="active"><a href="/student/create">Create Mode</a></li>
           @elseif(Request::is('student/*/*'))
           <li class="dropdown active">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@if(Request::is('student/*/history')) History Mode @elseif(Request::is('student/*/edit')) Edit Student Mode @elseif(Request::is('student/*/score')) Edit Score Mode @elseif(Request::is('student/*/delete')) Delete Mode @else @endif <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href=".">Detail Mode</a></li> 
               @if(Request::is('student/*/history')) @else <li><a href="history">History Mode</a></li>@endif
-              @if (Auth::guest())
-              @else
+              @if (Auth::check() and Auth::user()->student_id == $student->id)
               <li role="separator" class="divider"></li>
               @if(Request::is('student/*/edit')) @else <li><a href="edit">Edit Student Mode</a></li>@endif
+              @endif
+              @if(Auth::check() and Auth::user()->access == 1)
               @if(Request::is('student/*/score')) @else <li><a href="score">Edit Score Mode</a></li>@endif
               @if(Request::is('student/*/delete')) @else <li><a href="delete">Delete Mode</a></li>@endif
               <li role="separator" class="divider"></li>
@@ -55,9 +58,11 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Detail Mode<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="/{{Request::path()}}/history">History Mode</a></li>
-              @if (Auth::guest()) @else 
+              @if (Auth::check() and Auth::user()->student_id == $student->id)
               <li role="separator" class="divider"></li>
               <li><a href="/{{Request::path()}}/edit">Edit Student Mode</a></li>
+              @endif
+              @if(Auth::check() and Auth::user()->access == 1)
               <li><a href="/{{Request::path()}}/score">Edit Score Mode</a></li>
               <li><a href="/{{Request::path()}}/delete">Delete Mode</a></li>
               <li role="separator" class="divider"></li>
@@ -69,7 +74,7 @@
           @elseif(Request::is('bulkEdit/*') || Request::is('bulkEdit'))
           <li class="active"><a href="/bulkEdit"">Bulk Edit Mode</a></li>
           @else
-          @if (Auth::guest()) @else
+          @if (Auth::check() and Auth::user()->access == 1)
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="caret"></span></a>
             <ul class="dropdown-menu">
