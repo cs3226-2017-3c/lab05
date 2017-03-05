@@ -75,7 +75,6 @@
 
           @if (Auth::guest())
           <li @if(Request::is('login')) class="active" @endif ><a href="{{ route('login') }}">{{trans('navigation.login')}}</a></li>
-          <li @if(Request::is('register')) class="active" @endif ><a href="{{ route('register') }}">{{trans('navigation.register')}}</a></li>
           @else
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
