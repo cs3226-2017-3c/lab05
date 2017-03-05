@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['prefix' => '{lang?}', 'before' => 'localization'], function(){
+
 Route::post('/getIndexHtml', 'StudentController@indexWithData');
 Route::get('/', 'StudentController@index');
 Route::get('help', function() { return view('help'); });
@@ -50,6 +50,6 @@ Route::get('achievement/{component}/{id}', 'AchievementController@detail');
 
 Route::get('redirect', 'SocialAuthController@redirect');
 Route::get('github', 'SocialAuthController@callback');
-
+Route::group(['prefix' => '{lang?}', 'before' => 'localization'], function(){
 Route::get('/', function(){return View::make('localization'); });
 });
