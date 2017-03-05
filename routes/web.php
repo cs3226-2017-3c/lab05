@@ -51,6 +51,9 @@ Route::get('redirect', 'SocialAuthController@redirect');
 Route::get('github', 'SocialAuthController@callback');
 
 
+Route::get('message', 'MessageController@retrieve');
+Route::post('message', 'MessageController@send');
+
 Route::get('/changeLanguage/{locale}', array( 
 	'Middleware' => 'Language',
 	'uses' => 'LanguageController@switchLang'));
