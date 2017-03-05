@@ -18,7 +18,7 @@ class MessageController extends Controller {
 
   public function retrieve() {
     $user_id = Auth::user()->id;
-    $inbox = Message::where('receiver', $user_id)->get();
+    $inbox = Message::where('receiver', $user_id)->reverse()->get();
     foreach($inbox as $i){
       $sender = $i->sender;
       $receiver = $i->receiver;
@@ -27,7 +27,7 @@ class MessageController extends Controller {
       $i->sender = $sender;
       $i->receiver = $receiver;
     }
-    $outbox = Message::where('sender', $user_id)->get();
+    $outbox = Message::where('sender', $user_id)->reverse()->get();
     foreach($outbox as $i){
       $sender = $i->sender;
       $receiver = $i->receiver;
@@ -39,7 +39,7 @@ class MessageController extends Controller {
 
     $everything = null;
     if (Auth::check() and Auth::user()->access == 1 ){
-      $everything = Message::all();
+      $everything = Message::all()->reverse();
 
       foreach($everything as $i){
         $sender = $i->sender;
