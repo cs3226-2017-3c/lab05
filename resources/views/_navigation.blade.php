@@ -42,10 +42,10 @@
               <li><a href=".">Detail Mode</a></li> 
               @if(Request::is('student/*/history')) @else <li><a href="history">History Mode</a></li>@endif
               @if (Auth::check() and Auth::user()->student_id == $student->id)
-              <li role="separator" class="divider"></li>
               @if(Request::is('student/*/edit')) @else <li><a href="edit">Edit Student Mode</a></li>@endif
               @endif
               @if(Auth::check() and Auth::user()->access == 1)
+              <li role="separator" class="divider"></li>
               @if(Request::is('student/*/score')) @else <li><a href="score">Edit Score Mode</a></li>@endif
               @if(Request::is('student/*/delete')) @else <li><a href="delete">Delete Mode</a></li>@endif
               <li role="separator" class="divider"></li>
@@ -59,10 +59,10 @@
             <ul class="dropdown-menu">
               <li><a href="/{{Request::path()}}/history">History Mode</a></li>
               @if (Auth::check() and Auth::user()->student_id == $student->id)
-              <li role="separator" class="divider"></li>
               <li><a href="/{{Request::path()}}/edit">Edit Student Mode</a></li>
               @endif
               @if(Auth::check() and Auth::user()->access == 1)
+              <li role="separator" class="divider"></li>
               <li><a href="/{{Request::path()}}/score">Edit Score Mode</a></li>
               <li><a href="/{{Request::path()}}/delete">Delete Mode</a></li>
               <li role="separator" class="divider"></li>
