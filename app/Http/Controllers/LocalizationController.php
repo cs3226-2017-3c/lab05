@@ -11,5 +11,7 @@ class LocalizationController extends Controller {
       
       //Gets the translated message and displays it
       echo trans('lang.msg');
+	  
+	  return redirect()->action('StudentController@index');
    }
 }
