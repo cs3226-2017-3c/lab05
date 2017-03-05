@@ -22,8 +22,8 @@ class MessageController extends Controller {
     foreach($inbox as $i){
       $sender = $i->sender;
       $receiver = $i->receiver;
-      $sender = User::find($sender)->name;
-      $receiver = User::find($receiver)->name;
+      $sender = User::find($sender)->name . ' (ID: ' . $sender . ')';
+      $receiver = User::find($receiver)->name . ' (ID: ' . $receiver. ')';
       $i->sender = $sender;
       $i->receiver = $receiver;
     }
@@ -31,8 +31,8 @@ class MessageController extends Controller {
     foreach($outbox as $i){
       $sender = $i->sender;
       $receiver = $i->receiver;
-      $sender = User::find($sender)->name;
-      $receiver = User::find($receiver)->name;
+      $sender = User::find($sender)->name . ' (ID: ' . $sender . ')';
+      $receiver = User::find($receiver)->name . ' (ID: ' . $receiver. ')';
       $i->sender = $sender;
       $i->receiver = $receiver;
     }
