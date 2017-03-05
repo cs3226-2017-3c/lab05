@@ -1,4 +1,4 @@
-$(document).ready(function() 
+/*$(document).ready(function() 
 { 
     addRank();
 } 
@@ -25,3 +25,4 @@ function addRank()
 }
 
 
+*/
